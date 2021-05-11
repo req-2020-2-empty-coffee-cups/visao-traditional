@@ -1,0 +1,1055 @@
+%% abtex2-modelo-relatorio-tecnico.tex, v<VERSION> laurocesar
+%% Copyright 2012-<COPYRIGHT_YEAR> by abnTeX2 group at http://www.abntex.net.br/
+%%
+%% This work may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, either version 1.3
+%% of this license or (at your option) any later version.
+%% The latest version of this license is in
+%%   http://www.latex-project.org/lppl.txt
+%% and version 1.3 or later is part of all distributions of LaTeX
+%% version 2005/12/01 or later.
+%%
+%% This work has the LPPL maintenance status `maintained'.
+%%
+%% The Current Maintainer of this work is the abnTeX2 team, led
+%% by Lauro César Araujo. Further information are available on
+%% http://www.abntex.net.br/
+%%
+%% This work consists of the files abntex2-modelo-relatorio-tecnico.tex,
+%% abntex2-modelo-include-comandos and abntex2-modelo-references.bib
+%%
+
+% ------------------------------------------------------------------------
+% ------------------------------------------------------------------------
+% abnTeX2: Modelo de Relatório Técnico/Acadêmico em conformidade com
+% ABNT NBR 10719:2015 Informação e documentação - Relatório técnico e/ou
+% científico - Apresentação
+% ------------------------------------------------------------------------
+% ------------------------------------------------------------------------
+
+\documentclass[
+	% -- opções da classe memoir --
+	12pt,				% tamanho da fonte
+	%openright,			% capítulos começam em pág ímpar (insere página vazia caso preciso)
+	oneside,			% twoside para impressão em recto e verso. Oposto a oneside
+	a4paper,			% tamanho do papel.
+	% -- opções da classe abntex2 --
+	%chapter=TITLE,		% títulos de capítulos convertidos em letras maiúsculas
+	%section=TITLE,		% títulos de seções convertidos em letras maiúsculas
+	%subsection=TITLE,	% títulos de subseções convertidos em letras maiúsculas
+	%subsubsection=TITLE,% títulos de subsubseções convertidos em letras maiúsculas
+	% -- opções do pacote babel --
+	english,			% idioma adicional para hifenização
+	brazil,				% o último idioma é o principal do documento
+	]{abntex2}
+
+
+% ---
+% PACOTES
+% ---
+
+% ---
+% Pacotes fundamentais
+% ---
+\usepackage{lmodern}			% Usa a fonte Latin Modern
+\usepackage[T1]{fontenc}		% Selecao de codigos de fonte.
+\usepackage[utf8]{inputenc}		% Codificacao do documento (conversão automática dos acentos)
+\usepackage{indentfirst}		% Indenta o primeiro parágrafo de cada seção.
+\usepackage{color}				% Controle das cores
+\usepackage{graphicx}			% Inclusão de gráficos
+\usepackage{microtype} 			% para melhorias de justificação
+% ---
+
+% ---
+% Pacotes adicionais, usados no anexo do modelo de folha de identificação
+% ---
+\usepackage{multicol}
+\usepackage{multirow}
+% ---
+
+% ---
+% Pacotes adicionais, usados apenas no âmbito do Modelo Canônico do abnteX2
+% ---
+\usepackage{lipsum}				% para geração de dummy text
+% ---
+
+% ---
+% Pacotes de citações
+% ---
+\usepackage[brazilian,hyperpageref]{backref}	 % Paginas com as citações na bibl
+\usepackage[alf]{abntex2cite}	% Citações padrão ABNT
+
+% ---
+% Pacote de gráficos
+% ---
+% \usepackage{tikz}
+
+% ---
+% Pacote para adicionar facilmente quebra de linha em células das tabelas
+% ---
+\usepackage{makecell}
+
+% ---
+% Pacote para melhorar a aparência das tabelas e permitir formatação complexa
+% ---
+\usepackage{booktabs}
+
+% ---
+% Pacote para permitir tabelas ocuparem múltiplas páginas (cuidado com Overleaf gratuito)
+% ---
+\usepackage{longtable}
+
+% ---
+% Pacote para controlar formatação das legendas
+% ---
+\usepackage{caption}
+\captionsetup[longtable]{font=normalsize,singlelinecheck=false,justification=raggedright,position=top}
+
+% ---
+% Pacote para manter as tabelas dentro das seções em que foram criadas
+% ---
+\usepackage[section]{placeins}
+
+% ---
+% Pacote para controlar floats, não usar em conjunto com o pacote float comum
+% ---
+% \usepackage{floatrow}
+% \floatsetup[longtable]{LTcapwidth=table}
+
+% ---
+% CONFIGURAÇÕES DE PACOTES
+% ---
+
+% ---
+% Configurações do pacote backref
+% Usado sem a opção hyperpageref de backref
+\renewcommand{\backrefpagesname}{Citado na(s) página(s):~}
+% Texto padrão antes do número das páginas
+\renewcommand{\backref}{}
+% Define os textos da citação
+\renewcommand*{\backrefalt}[4]{
+	\ifcase #1 %
+		Nenhuma citação no texto.%
+	\or
+		Citado na página #2.%
+	\else
+		Citado #1 vezes nas páginas #2.%
+	\fi}%
+% ---
+
+% ---
+% Configurações do pacote tikz
+% ---
+% \usetikzlibrary{shapes.geometric, arrows.meta, positioning}
+
+% ---
+% Informações de dados para CAPA e FOLHA DE ROSTO
+% ---
+\titulo{NotoriousNote \\ \huge{Visão do Projeto} \\ \Large{Abordagem Tradicional}}
+\autor{Equipe EmptyCoffeeCups \\ Davi Antônio da Silva Santos \and Marcos Adriano \and Jonathan Jorge Barbosa Oliveira \and Wellington Jonathan}
+\local{Brasília, Distrito Federal, Brasil}
+\data{2021, 2021.05.10-preview}
+\instituicao{%
+  Universidade de Brasília -- UnB
+  \par
+  Faculdade do Gama -- FGA
+}
+\tipotrabalho{Relatório técnico}
+% O preambulo deve conter o tipo do trabalho, o objetivo,
+% o nome da instituição e a área de concentração
+\preambulo{Documento de visão e planejamento do projeto NotoriousNote.}
+% ---
+
+% ---
+% Configurações de aparência do PDF final
+
+% alterando o aspecto da cor azul
+\definecolor{blue}{RGB}{41,5,195}
+
+% informações do PDF
+\makeatletter
+\hypersetup{
+     	%pagebackref=true,
+		pdftitle={\@title},
+		pdfauthor={\@author},
+    	pdfsubject={\imprimirpreambulo},
+	    pdfcreator={LaTeX with abnTeX2},
+		pdfkeywords={abnt}{latex}{abntex}{abntex2}{relatório técnico},
+		colorlinks=true,       		% false: boxed links; true: colored links
+    	linkcolor=blue,          	% color of internal links
+    	citecolor=blue,        		% color of links to bibliography
+    	filecolor=magenta,      		% color of file links
+		urlcolor=blue,
+		bookmarksdepth=4
+}
+\makeatother
+% ---
+
+% ---
+% Espaçamentos entre linhas e parágrafos
+% ---
+
+% O tamanho do parágrafo é dado por:
+\setlength{\parindent}{1.3cm}
+
+% Controle do espaçamento entre um parágrafo e outro:
+\setlength{\parskip}{0.2cm}  % tente também \onelineskip
+
+% ---
+% compila o indice
+% ---
+\makeindex
+% ---
+
+% ----
+% Início do documento
+% ----
+\begin{document}
+
+% Seleciona o idioma do documento (conforme pacotes do babel)
+%\selectlanguage{english}
+\selectlanguage{brazil}
+
+% Retira espaço extra obsoleto entre as frases.
+\frenchspacing
+
+% ----------------------------------------------------------
+% ELEMENTOS PRÉ-TEXTUAIS
+% ----------------------------------------------------------
+% \pretextual
+
+% ---
+% Capa
+% ---
+\imprimircapa
+% ---
+
+% ---
+% Folha de rosto
+% (o * indica que haverá a ficha bibliográfica)
+% ---
+\imprimirfolhaderosto*
+% ---
+
+% ---
+% Anverso da folha de rosto:
+% ---
+
+% {
+% \ABNTEXchapterfont
+
+% \vspace*{\fill}
+
+% Conforme a ABNT NBR 10719:2015, seção 4.2.1.1.1, o anverso da folha de rosto
+% deve conter:
+
+% \begin{alineas}
+%   \item nome do órgão ou entidade responsável que solicitou ou gerou o
+%   relatório;
+%   \item título do projeto, programa ou plano que o relatório está relacionado;
+%   \item título do relatório;
+%   \item subtítulo, se houver, deve ser precedido de dois pontos, evidenciando a
+%   sua subordinação ao título. O relatório em vários volumes deve ter um título
+%   geral. Além deste, cada volume pode ter um título específico;
+%   \item número do volume, se houver mais de um, deve constar em cada folha de
+%   rosto a especificação do respectivo volume, em algarismo arábico;
+%   \item código de identificação, se houver, recomenda-se que seja formado
+%   pela sigla da instituição, indicação da categoria do relatório, data,
+%   indicação do assunto e número sequencial do relatório na série;
+%   \item classificação de segurança. Todos os órgãos, privados ou públicos, que
+%   desenvolvam pesquisa de interesse nacional de conteúdo sigiloso, devem
+%     informar a classificação adequada, conforme a legislação em vigor;
+%   \item nome do autor ou autor-entidade. O título e a qualificação ou a função
+%   do autor podem ser incluídos, pois servem para indicar sua autoridade no
+%   assunto. Caso a instituição que solicitou o relatório seja a mesma que o
+%   gerou, suprime-se o nome da instituição no campo de autoria;
+%   \item local (cidade) da instituição responsável e/ou solicitante; NOTA: No
+%   caso de cidades homônimas, recomenda-se o acréscimo da sigla da unidade da
+%   federação.
+%   \item ano de publicação, de acordo com o calendário universal (gregoriano),
+%   deve ser apresentado em algarismos arábicos.
+% \end{alineas}
+
+% \vspace*{\fill}
+% }
+
+% ---
+% Agradecimentos
+% ---
+% \begin{agradecimentos}
+% O agradecimento principal é direcionado a Youssef Cherem, autor do
+% \nameref{formulado-identificacao} (\autopageref{formulado-identificacao}).
+
+% Os agradecimentos especiais são direcionados ao Centro de Pesquisa em
+% Arquitetura da Informação\footnote{\url{http://www.cpai.unb.br/}} da Universidade de
+% Brasília (CPAI), ao grupo de usuários
+% \emph{latex-br}\footnote{\url{http://groups.google.com/group/latex-br}} e aos
+% novos voluntários do grupo
+% \emph{\abnTeX}\footnote{\url{http://groups.google.com/group/abntex2} e
+% \url{http://www.abntex.net.br/}}~que contribuíram e que ainda
+% contribuirão para a evolução do abn\TeX.
+
+% \end{agradecimentos}
+% ---
+
+% ---
+% RESUMO
+% ---
+
+% resumo na língua vernácula (obrigatório)
+% \setlength{\absparsep}{18pt} % ajusta o espaçamento dos parágrafos do resumo
+% \begin{resumo}
+%  Segundo a \citeonline[3.1-3.2]{NBR6028:2003}, o resumo deve ressaltar o
+%  objetivo, o método, os resultados e as conclusões do documento. A ordem e a extensão
+%  destes itens dependem do tipo de resumo (informativo ou indicativo) e do
+%  tratamento que cada item recebe no documento original. O resumo deve ser
+%  precedido da referência do documento, com exceção do resumo inserido no
+%  próprio documento. (\ldots) As palavras-chave devem figurar logo abaixo do
+%  resumo, antecedidas da expressão Palavras-chave:, separadas entre si por
+%  ponto e finalizadas também por ponto.
+
+%  \noindent
+%  \textbf{Palavras-chaves}: latex. abntex. editoração de texto.
+% \end{resumo}
+% ---
+
+% Histórico de revisão
+\chapter*[Histórico de Revisões]{Histórico de Revisões}
+
+\IBGEtabfontsize
+\begin{longtable}{@{}p{0.1\textwidth}p{0.1\textwidth}p{0.6\textwidth}p{0.1\textwidth}@{}}
+%\caption{}
+%\label{} \\
+\toprule
+\textbf{Data} & \textbf{Versão} & \textbf{Descrição} & \textbf{Autor} \\ \midrule \endhead
+10/05/2021 & 2021.05.10-preview & \begin{tabular}{@{}p{0.6\textwidth}@{}}Versão inicial deste documento de visão por abordagem tradicional produzida a partir da versão 2021.05.04-preview do documento de visão por abordagem ágil \\ Remoção da parte de abordagem ágil \\ Renomear parte Abordagem Tradicional para Atividades da Engenharia de Requisitos \\ Renomear capítulo Requisitos Tradicionais para Requisitos \\ Alterar descrição do RF19 \\ Corrigir tabela de planejamento de gerência para refletir a mudança de paradigma da Engenharia de Requisitos \\ Atualizar Android Studio de 4.1.3 para 4.2 \\ Atualizar Flutter de 2.0.4 para 2.0.6 \\ Atualizar Kotlin para 1.5.0 \\ Especificar a diferença entre o Gradle e o Gradle Plug-in \\ Atualizar extensão Kotlin da versão 1.4.31-release-Studio4.1 para 202-1.5.0-release-764-AS8194.7 \\ Atualizar plug-in Dart de 201.9335 para 202.8488 \\ Atualizar plug-in Flutter de 55.1.1 para 56.0.2 \end{tabular} & Davi Antônio da Silva Santos \\ \midrule
+ & & & \\ \bottomrule
+\end{longtable}
+\cleardoublepage
+
+% ---
+% inserir lista de ilustrações
+% ---
+\pdfbookmark[0]{\listfigurename}{lof}
+\listoffigures*
+\cleardoublepage
+% ---
+
+% ---
+% inserir lista de tabelas
+% ---
+\pdfbookmark[0]{\listtablename}{lot}
+\listoftables*
+\cleardoublepage
+% ---
+
+% ---
+% inserir lista de abreviaturas e siglas
+% ---
+\begin{siglas}
+  \item[API] \foreignlanguage{english}{\textit{Application Programming Interface}}
+  \item[BD] Banco de Dados
+  \item[BLoC] \foreignlanguage{english}{\textit{Business Logic of Component}}
+  \item[DB] \foreignlanguage{english}{\textit{Database}}
+  \item[IDE] \foreignlanguage{english}{\textit{Integrated Development Environment}}
+  \item[SAFe] \foreignlanguage{english}{\textit{Scaled Agile Framework}}
+  \item[SDK] \foreignlanguage{english}{\textit{Software Development Kit}}
+  \item[SOLID] \foreignlanguage{english}{\textit{Single responsibility, Open-closed, Liskov substitution, Interface segregation, Dependency inversion}}
+  \item[UI] \foreignlanguage{english}{\textit{User Interface}}
+  \item[UnB] Universidade de Brasília
+\end{siglas}
+% ---
+
+% ---
+% inserir lista de símbolos
+% ---
+% \begin{simbolos}
+%   \item[$ \Gamma $] Letra grega Gama
+%   \item[$ \Lambda $] Lambda
+%   \item[$ \zeta $] Letra grega minúscula zeta
+%   \item[$ \in $] Pertence
+% \end{simbolos}
+% ---
+
+% ---
+% inserir o sumario
+% ---
+\pdfbookmark[0]{\contentsname}{toc}
+\tableofcontents*
+\cleardoublepage
+% ---
+
+
+% ----------------------------------------------------------
+% ELEMENTOS TEXTUAIS
+% ----------------------------------------------------------
+\textual
+%[Este artefato deve ser utilizado como guia para o registro das informações gerais do projeto. Deve ser refinado e atualizado ao longo do projeto].
+
+\chapter{Introdução}
+%\section{Problema}
+
+\section{Declaração do Problema}
+%[Forneça uma declaração resumindo o problema que está sendo resolvido por este projeto. O seguinte formato pode ser usado:]
+
+\begin{table}[ht]
+\IBGEtab{%
+\caption{Declaração do problema}%
+\label{tab:declaracao_problema}%
+}{%
+\begin{tabular}{@{}p{0.29\textwidth}p{0.7\textwidth}@{}}
+\toprule
+% descreva o problema
+O problema & grande quantidade de atividades simultâneas exigidas pela sociedade atual \\ \midrule
+% informe as partes interessadas afetadas pelo problema
+Afeta & pessoas que possuem dificuldade em organizar seus compromissos caso não os anotem \\ \midrule
+% qual é o impacto desse problema?
+Cujo impacto é & risco de não cumprimento de compromissos e desorganização das tarefas individuais \\ \midrule
+% liste alguns benefícios principais de uma solução de sucesso
+Uma solução de sucesso seria & permitir que os criem anotações com a possibilidade de configurar lembretes para notificar anotações específicas, criem anotações para lista de tarefas, classifiquem anotações por grupos, realizem backups remotos e locais das anotações \\ \bottomrule
+\end{tabular}%
+}{%\fonte{}%
+}
+\end{table}
+
+\section{Objetivos do Projeto}
+%[Forneça o objetivo principal do projeto, e objetivos secundários (caso haja)]
+\subsection{Objetivos primários}
+Criar uma aplicação que permita o usuário crie anotações, listas de tarefa, lembretes para as anotações. Também deve ser possível ao usuário acessar \textit{templates} de anotações para criar modelos comuns mais rapidamente.
+
+\subsection{Objetivos secundários}
+A aplicação também deve ser capaz de exportar os dados de suas notas e listas de tarefas para formatos que podem ser importados em outros aplicativos ou armazenados em dispositivos externos: JSON, \texttt{org-mode} e texto puro. Além disso, também deve ser possível fazer o backup dos dados do dispositivo na nuvem e compartilhar a informação com outros aplicativos usando funções nativas do sistema operacional móvel.
+
+\chapter{\foreignlanguage{english}{\textit{Stakeholders}}}
+% [Forneça a lista de stakeholders envolvidos no projeto]
+
+\begin{table}[ht]
+\IBGEtab{%
+\caption{Lista das partes interessadas (\textit{stakeholders}) envolvidas no projeto}%
+\label{tab:stakeholders}%
+}{%
+\begin{tabular}{@{}p{0.2\textwidth}p{0.25\textwidth}p{0.5\textwidth}@{}}
+\toprule
+\textbf{Nome} & \textbf{Descrição} & \textbf{Responsabilidades} \\ \midrule
+% Nomeie o tipo de parte interessada & Descreva resumidamente a parte interessada & Resuma as principais responsabilidades das partes interessadas com relação ao sistema que está sendo desenvolvido; \\ ou seja, seu interesse como parte interessada. Por exemplo, esta parte interessada:\\ garante que o sistema será sustentável\\ garante que haverá uma demanda de mercado para as características do produto\\ monitora o progresso do projeto\\ aprova financiamento\\ e assim por diante
+Professor orientador & Professor da disciplina de Requisitos de Software & \makecell[c{p{0.5\textwidth}}]{Monitora o progresso do projeto \\ Auxilia na validação e verificação de requisitos} \\ \midrule
+Desenvolvedores & Alunos da disciplina de Requisitos de Software & \makecell[c{p{0.5\textwidth}}]{Elicitam, analisam, especificam, validam, verificam e gerenciam requisitos\\ Desenvolvem e testam o software \\ Produzem um software utilizável} \\ \midrule
+Usuário & Pessoas que utilizarão o aplicativo & \makecell[c{p{0.5\textwidth}}]{Utilizar a aplicação móvel\\ Reportar problemas aos desenvolvedores} \\ \bottomrule
+\end{tabular}%
+}{%\fonte{}%
+}
+\end{table}
+
+\chapter{Visão Geral do Produto}
+
+\section{Declaração de Posição do Produto}
+%[Forneça uma declaração geral resumindo, no nível mais alto, a posição exclusiva que o produto pretende preencher no mercado. Uma declaração de posição do produto comunica a intenção da aplicação e a importância do projeto para todo o pessoal envolvido. O seguinte formato pode ser usado:]
+
+\begin{table}[ht]
+\IBGEtab{%
+\caption{Declaração de posição do produto.}%
+\label{tab:declaracao_posicao_prodututo}%
+}{%
+\begin{tabular}{@{}p{0.2\textwidth}p{0.8\textwidth}@{}}
+\toprule
+% cliente alvo
+\textbf{Para} & usuários de \textit{smartphone} Android \\ \midrule
+% declaração da necessidade ou oportunidade
+\textbf{Quem} & usuários que queiram controle sobre as suas notas escritas em um celular, mas não querem abandonar a comodidade de armazenarem seus dados na nuvem \\ \midrule
+% O [nome do produto] & é um/uma [categoria do produto]
+\textbf{O NotoriousNote} & é uma aplicação móvel de registro de notas \\ \midrule
+% declaração do principal benefício; ou seja, a razão convincente para comprar, utilizar, etc.
+\textbf{Que} & permite que o usuário exporte os dados da própria aplicação, de modo que possa armazená-los em outro lugar com o objetivo de, por exemplo, realizar backup de notas importantes \\ \hline
+% alternativa competitiva primária
+\textbf{Ao contrário} & do Google Keep, que dificulta a exportação das notas e listas de tarefas feitas no próprio aplicativo \\ \midrule
+% declaração de diferenciação primária
+\textbf{Nosso produto} & permite que o usuário exporte os seus dados em um formato legíveis (JSON, texto puro e \texttt{org-mode}) que podem ser usado em outras aplicações \\ \bottomrule
+\end{tabular}%
+}{%\fonte{}%
+}
+\end{table}
+
+\section{Mínimo Produto Viável (MVP)}
+%[Forneça uma lista de características mínimas que o produto deve possuir para que possa ser lançado]
+\begin{itemize}
+    % \item Aplicação deve ser executável em sistemas operacionais móveis Android com suporte as APIs 24 a 30;
+    \item Criar, apagar, editar e visualizar de notas de texto com título e conteúdo;
+    \item Criar, apagar, editar e visualizar etiquetas;
+    \item Atribuir etiquetas a uma anotação;
+    % \item Exportar notas e listas de tarefas em texto puro;
+    \item Visualizar notas por etiquetas específicas.
+    % \item Criação de listas de tarefa com título e tarefas que podem ser registradas como terminadas ou não;
+    % \item Capacidade de salvar notas e listas de tarefa em nuvem (Cloud Firestore);
+    % \item Capacidade de exportar notas e listas de tarefas em JSON;
+    % \item Capacidade de ler notas e listas de tarefas salvas localmente em JSON.
+\end{itemize}
+
+\chapter{Visão Geral do Projeto}
+\section{Organização do Projeto}
+%[apresentada a divisão de atribuições e responsabilidades entre os membros do projeto, sem qualquer relação de hierarquia ou grau de importância. Todos os integrantes são igualmente importantes e responsáveis pelo sucesso do projeto.]
+A organização do projeto seguirá a divisão de papéis proposta pelo \textit{framework} Scrum \cite{scrum_guide}.
+
+\begin{table}[ht]
+\IBGEtab{%
+\caption{Organização do projeto}%
+\label{tab:organizacao_projeto}%
+}{%
+\begin{tabular}{@{}p{0.2\textwidth}p{0.24\textwidth}p{0.24\textwidth}p{0.24\textwidth}@{}}
+\toprule
+\textbf{Papel} & \textbf{Atribuições} & \textbf{Responsável} & \textbf{Participantes} \\ \midrule
+Desenvolvedor & \makecell[c{p{0.24\textwidth}}]{Membro da equipe ágil\\Execução das disciplinas de Engenharia de Software} & Jonathan Jorge, \foreignlanguage{english}{Wellington} Jonathan & Davi Antônio, Jonathan Jorge, Marcos Adriano, Wellington Jonathan\\ \midrule
+Scrum Master & Responsável pelo cumprimento da metodologia de desenvolvimento Scrum & Marcos Adriano & - \\ \midrule
+Product Owner & Responsável por manter o conceito das funcionalidades e melhorias, de forma que sigam a visão definida para o produto ou projeto. & Davi Antônio & - \\ \midrule
+Professor Orientador & Professor da disciplina de Requisitos de Software & Professor Dr. Marsicano & Professor Dr. Marsicano \\ \bottomrule
+\end{tabular}%
+}{%\fonte{}%
+}
+\end{table}
+
+\chapter{Ferramentas, Ambiente e Infraestrutura}
+\section{Hardware}
+% [Esta seção apresenta a infra-estrutura de hardware adequada para o desenvolvimento do projeto.]
+% [Exemplo:
+
+\begin{table}[ht]
+\IBGEtab{%
+\caption{Infraestrutura de hardware necessária}%
+\label{tab:infra_hardware}%
+}{%
+\begin{tabular}{@{}p{0.14\textwidth}p{0.14\textwidth}p{0.27\textwidth}p{0.05\textwidth}p{0.2\textwidth}@{}}
+\toprule
+\textbf{Perfil} & \textbf{Tipo} & \textbf{Configurações} & \textbf{Qtd.} & \textbf{Observação} \\ \midrule
+Desenvolvedor & Computador & \makecell[c{p{0.27\textwidth}}]{Interface USB \\ Mínimo 8 GiB RAM \\ Resolução de tela mínima 1280x800 px.} & 04 & - \\ \bottomrule
+\end{tabular}%
+}{%\fonte{}%
+}
+\end{table}
+\newpage%
+\section{Software}
+%[Esta seção apresenta a infra-estrutura de software adequada para o desenvolvimento do projeto.]
+%[Exemplo:
+\begin{table}[ht]
+\caption{Infraestrutura de software necessária}%
+\label{tab:ambiente_software}
+\centering
+\IBGEtabfontsize
+\begin{tabular}{@{}p{0.125\textwidth}p{0.145\textwidth}p{0.145\textwidth}p{0.135\textwidth}p{0.100\textwidth}p{0.115\textwidth}@{}}
+\toprule
+\textbf{Perfil} & \textbf{Tipo} & \textbf{Nome} & \textbf{Versão} & \textbf{Licenças}  & \textbf{Observação} \\ \midrule
+Todos & Controle de Versão & Git & 2.25.1 ou superior & 04  & - \\ \midrule
+Todos & IDE & Android Studio & 4.2 & 04  & - \\ \midrule
+Todos & SDK & Flutter & 2.0.6 & 04  & - \\ \midrule
+Todos & Linguagem de programação & Dart & 2.12.3 & 04  & - \\ \midrule
+Todos & Linguagem de programação & Kotlin & 1.5.0 & 04  & - \\ \midrule
+Todos & Extensão do Android Studio & Dart & 202.8488 & 04  & - \\ \midrule
+Todos & Extensão do Android Studio & Flutter & 56.0.2 & 04  & - \\ \midrule
+Todos & Extensão do Android Studio & Kotlin & 202-1.5.0-release-764-AS8194.7 & 04  & - \\ \midrule
+Todos & Pacote Flutter & provider & \^{}5.0.0 & 04 & - \\ \midrule
+Todos & Pacote Flutter & sqflite & \^{}2.0.0+3 & 04 & - \\ \midrule
+Todos & Pacote Flutter & firebase\_core & \^{}1.0.2 & 04 & - \\ \midrule
+Todos & Pacote Flutter & firebase\_auth & \^{}1.0.1 & 04  & - \\ \midrule
+Todos & Pacote Flutter & cloud\_firestore & \^{}1.0.3 & 04  & - \\ \midrule
+Todos & Dependência Android & google-services & 4.3.5 & 04  & - \\ \midrule
+Todos & Dependência Android & firebase-bom & 26.8.0 & 04  & - \\ \midrule
+Todos & Ferramenta de compilação & gradle-plug-in & 4.2 & 04  & - \\ \midrule
+Todos & Ferramenta de compilação & gradle & 6.9 & 04  & - \\ \midrule
+Todos & Ferramenta de compilação & Android SDK Build Tools & 30.0.3 & 04  & - \\ \bottomrule
+\end{tabular}%
+\end{table}
+
+\chapter{Processo de Gerência de Projeto}
+\section{Planejamento das Fases e Iterações do Projeto}
+% [Registrar o projeto, as fases de seu ciclo de vida e suas iterações, especificando suas datas de início e de fim, bem como os produtos a serem gerados.]
+
+\begin{table}[ht]
+\IBGEtab{%
+\caption{Planejamento de gerência de projeto}%
+\label{tab:fases_iteracoes}%
+}{% p{0.14\textwidth} %\makecell[c{p{0.27\textwidth}}]{}
+\begin{tabular}{@{}lllp{0.7\textwidth}@{}}
+\toprule
+\textbf{Iteração} & \textbf{Início} & \textbf{Fim} & \textbf{Incrementos Esperados} \\ \midrule
+1 & 06/04 & 22/04 & \begin{tabular}{@{}p{0.7\textwidth}@{}}Levantar problemas, necessidades, requisitos \\ Organizar requisitos em casos de uso \\ Elaborar diagrama de casos de uso \\ Atualização do documento de visão\end{tabular} \\ \midrule
+2 & 27/04 & 13/05 & \begin{tabular}{@{}p{0.7\textwidth}@{}}Separar documentos de visão em ágil e tradicional \\ Especificar casos de uso do MVP \\ Separar repositórios em código desenvolvido com as histórias e com os casos de uso \\ Geração da APK otimizada para lançamento \\ Entrega da versão final do documento de visão tradicional\end{tabular} \\ \bottomrule
+\end{tabular}%
+}{%\fonte{}%
+}
+\end{table}
+
+\section{Processo de Desenvolvimento e Mensuração}
+% [Especifique como será acompanhado o progresso, por exemplo, por meio de reuniões de revisão diárias, avaliações de iteração, relatórios de Burndown de Projeto e Burndown de Iteração.]
+A equipe utilizará o \textit{framework} Scrum, com utilização reuniões semanais no lugar da \textit{daily} e com retrospectiva da \textit{sprint}, para gerenciar o projeto. O progresso será acompanhado usando-se um quadro Kanban na plataforma Github, a qual também atua como repositório remoto para o sistema de versionamento distribuído Git, que será utilizado para o controle de versão do código fonte.
+
+Os requisitos do projeto serão separados em histórias de usuário e estas serão transformadas em cartões de um quadro Kanban que corresponderá ao \textit{backlog} do projeto usando-se o sistema de \textit{issues} disponibilizado pela plataforma.
+
+Através da reunião de planejamento serão escolhidas as \textit{issues} do quadro de \textit{backlog} do produto que serão movidas para o \textit{backlog} de cada \textit{sprint}. Cada quadro possui colunas geradas a partir de etiquetas que identificam o estado da \textit{issue}: \textit{backlog} da \textit{sprint}, a fazer, fazendo, testando e feito.
+
+Um cartão será movido para a coluna a fazer assim que tiver um responsável atribuído; de a fazer para a coluna fazendo quando trabalho de codificação iniciar-se; de fazendo para testando enquanto é validado e de testando para pronto após a aprovação do Product Owner e do Professor Orientador na cerimônia de Revisão da \textit{Sprint}.
+
+A equipe acompanhará o desempenho atribuindo a cada história no \textit{backlog} do produto uma pontuação. Essa pontuação será atribuída pela equipe nas reuniões de planejamento usando-se a técnica de \textit{Planning Poker} \cite{planning_poker} usando a sequência de Fibonacci. Os pontos serão atribuídos após a discussão do grupo, e podem ser reatribuídos caso se considere que a atribuição inicial esteja desbalanceada.
+
+Para permitir um acompanhamento mais próximo do desenvolvimento, estimando a capacidade de desenvolvimento da equipe, será usada a métrica \textit{velocity} para cada iteração, a qual consiste no número de pontos de histórias executadas com sucesso numa dada \textit{sprint}. Caso aconteça uma mudança nos valores de pontos das histórias a métrica terá que ser recalculada.
+
+% \section{\foreignlanguage{english}{\textit{Milestones}} e Objetivos do Projeto}
+
+\section{Matriz de Comunicação}
+A comunicação do grupo é feita principalmente pelo Telegram e por reuniões no Microsoft Teams.
+%[Esta seção descreve a estratégia de comunicação adotada para monitoramento do progresso do projeto. Identificar a periodicidade de reuniões e o envio dos relatórios exigidos pelo processo e opcionalmente outros relatórios exigidos pelo cliente.]
+
+\begin{table}[ht]
+\IBGEtab{%
+\caption{Matriz de comunicação}%
+\label{tab:matriz_comunicacao}%
+}{%
+\begin{tabular}{@{}p{0.25\textwidth}p{0.25\textwidth}p{0.2\textwidth}p{0.25\textwidth}@{}}
+\toprule
+\textbf{Descrição} & \textbf{Área/Envolvidos} & \textbf{Periodicidade} & \textbf{Produtos Gerados} \\ \midrule
+% \multirow{2}{=}{\begin{tabular}[c]{@{}p{0.25\textwidth}@{}}- Acompanhamento das Atividades em Andamento\\ - Acompanhamento dos Riscos, Compromissos, Ações Pendentes, Indicadores \end{tabular}} & - Equipe do Projeto & - Semanal & \multirow{2}{=}{\begin{tabular}[c]{@{}p{0.2\textwidth}@{}}- Ata de reunião\\ - Relatório de situação do projeto \end{tabular}} \\ \cmidrule(lr){2-3}
+%  &  & - Quinzenal &  \\ & & & \\ & & & \\ & & & \\ & & & \\ \midrule
+
+
+
+- Comunicar situação do projeto & \begin{tabular}[c]{@{}l@{}}- Equipe \\ - Professor\end{tabular} & - Semanal & \begin{tabular}[c]{@{}p{0.25\textwidth}@{}}- Comunicação com o Professor Orientador\\- Atualizações nos \foreignlanguage{english}{\textit{backlogs}} \end{tabular} \\ \midrule
+
+- Comunicar situação entre membros(\textit{Sprint Planning}) & \begin{tabular}[c]{@{}l@{}}- Equipe \\ \end{tabular} & - No inicio da Sprint & \begin{tabular}[c]{@{}p{0.25\textwidth}@{}}-  \textit{Product Backlog} da \textit{Sprint} \\  \end{tabular} \\ \midrule
+
+% - Comunicar situação entre membros(\textit{daily}) & \begin{tabular}[c]{@{}l@{}}- Equipe \\ \end{tabular} & - Seg , Quar e Sex & - \\ \midrule
+
+
+
+- Comunicar situação entre membros(\textit{Sprint Review}) & \begin{tabular}[c]{@{}l@{}}- Equipe \\ \end{tabular} & - No final da \textit{Sprint} & \begin{tabular}[c]{@{}p{0.25\textwidth}@{}}-  \\  \end{tabular} \\ \midrule
+
+
+
+
+- Comunicar situação entre membros (\textit{Sprint Retrospective}) & \begin{tabular}[c]{@{}l@{}}- Equipe \\ \end{tabular} & - No final da \textit{Sprint} & \begin{tabular}[c]{@{}p{0.25\textwidth}@{}}- Atualizações nos documentos de visão e nos \foreignlanguage{english}{\textit{backlogs}} \\  \end{tabular} \\ \bottomrule
+
+
+
+\end{tabular}%
+}{%\fonte{}%
+}
+\end{table}
+
+\section{Escalabilidade do Projeto}
+
+Com o andamento do projeto, previsivelmente ocorreram conflitos que devem ser identificados o mais breve possível, e que devem ser imediatamente solucionados. O tratamento desses conflitos deve ser algo orgânico do fluxo de desenvolvimento de software, e ter antecipadamente para diferentes problemas subsequentes frentes de resolução, sendo que nem todo conflito pode ou deve ser solucionado em uma primeira instancia.
+
+O fluxo do projeto deve ter em seu acompanhamento um monitoramento continuo de revisão e correção. Deve-se garantir quando encontrados conflitos esses devem ser imediatamente tratados com prioridade para o \textit{Scrum Master} e escalonados, caso seja necessário, ao Professor Orientador para sua dada resolução, evitando o comprometimento do fluxo de projeto.
+
+Quando tratado o \textit{backlog}, todo conflito deve ser mensurado e verificado de antemão com o \textit{Product Owner}, se houver problemas na resolução, a situação será levada para o Professor Orientador, assim como conflitos que põem em risco o projeto.
+
+\section{Gerenciamento de Riscos}
+O objetivo principal da Gestão de Riscos é controlar  impedimentos de qualquer tipo, que possa surgir durante o ciclo de desenvolvimento , impedindo o progresso do projeto de acordo com as previsões iniciais. Comumente citado no PMBOK também pode ser utilizado em projetos que utilizem metodologias ágeis  assim como o \textit{Scrum}. Dessas forma os riscos elicitados foram os seguintes:
+\begin{table}[ht]
+\IBGEtab{%
+\caption{Lista de riscos}%
+\label{tab:lista_riscos}%
+}{%
+\begin{tabular}{@{}p{0.24\textwidth}p{0.24\textwidth}p{0.24\textwidth}p{0.2\textwidth}@{}}
+\toprule
+\textbf{Código} & \textbf{Risco} & \textbf{Ação} & \textbf{Nível de Risco} \\ \midrule
+RS01 & Não Versionamento do código & Refatoração do código para ser aceito na versão mais recente do projeto. & Médio \\ \midrule
+RS02 & Equipe desorganizada & Reunião para alinhar a equipe. & Baixo \\ \midrule
+RS03 & Não priorização dos requisitos & Analisar as dependências dos requisitos e priorizar os que há menos dependência & Baixo\\ \midrule
+RS04 & Má elicitação dos requisitos & Refazer o requisito e todas as partes que o mesmo está envolvido & Alto \\ \midrule
+RS05 & Falta de comunicação da equipe & Reunir para alinhar a equipe & Médio \\ \midrule
+RS06 & Não integração do código & Refatoração do código para permitir integração & Médio \\ \midrule
+\end{tabular}%
+}{%\fonte{}%
+}
+\end{table}
+%[Para o Gerenciamento de Riscos devem ser realizadas tarefas, como:
+%\begin{itemize}
+%\item
+ %   \item Identificar todos os riscos possíveis e detectáveis em cada fase do projeto;
+ %   \item Executar as ações para mitigar os riscos que tenham um alto grau de exposição ao risco caso este ocorra na Lista de Riscos do Projeto;
+  %  \item Fazer uma revisão da lista dos riscos periodicamente, com o propósito de averiguar uma possível incidência de um risco e ver se há outros riscos ainda não relatados;
+   % \item Em caso de confirmação de um risco previsto, agir no sentido de contingenciá-lo conforme programado;%    \item Registrar os riscos no Painel de Controle do Projeto e no Plano do Projeto (Riscos iniciais);]
+%\end{itemize}
+
+
+\section{Critérios de Replanejamento}
+%[Descrever os critérios de replanejamento que serão utilizados, caso seja necessário realizá-lo no projeto.]
+Será necessário replanejar o projeto caso algumas dessas situações venha acontecer:
+\begin{itemize}
+    \item Algum integrante ficar impossibilitado de colaborar com o projeto;
+    \item Caso o professor considere inadequado o tema;
+    \item Caso os requisitos não sejam suficientes para aplicar o conteúdo da unidade curricular.
+    \item Caso a tecnologia escolhida torne-se inadequada ao desenvolvimento do projeto.
+\end{itemize}
+
+\part{Atividades da Engenharia de Requisitos}
+
+\chapter{Requisitos}
+\section{Necessidades}
+
+\IBGEtabfontsize
+\begin{longtable}{@{}p{0.05\textwidth}p{0.2\textwidth}p{0.05\textwidth}p{0.2\textwidth}p{0.2\textwidth}p{0.2\textwidth}@{}}
+\caption{Necessidades}
+\label{tab:necessidades} \\
+\toprule
+\textbf{Id.} & \textbf{Necessidade} & \textbf{Prioridade} & \textbf{Problema} & \textbf{Solução Atual} & \textbf{Solução Proposta} \\ \midrule
+N1 & Gerenciar anotações & Alta & Dificuldade em organizar múltiplos compromissos de forma eficiente & Gerenciamento dos compromissos em blocos adesivos ou agenda física & Digitalização do processo de registro e gestão das anotações \\ \midrule
+N2 & Cópia de segurança das anotações & Média & Ter acesso às anotações sempre que precisar, mesmo em caso de roubos e perdas & Não é realizado backup das anotações & Digitalizar as anotações possibilitará a cópia eficiente das anotações \\ \midrule
+N3 &Lembrar compromissos & Média & Recordar dos compromissos de forma simples e eficiente & A lembrança dos compromissos é feita analisando a agenda e anotações periodicamente & Elaboração de um sistema que alerta o usuário dos seus lembretes \\ \bottomrule
+\end{longtable}
+
+\section{Requisitos funcionais}
+\IBGEtabfontsize
+\begin{longtable}{@{}p{0.05\textwidth}p{0.95\textwidth}@{}}
+\caption{Requisitos}
+\label{tab:requisitos} \\
+\toprule
+\textbf{Id.} & \textbf{Descrição} \\ \midrule
+RF01 & Para criar uma anotação o usuário deve sinalizar que quer criá-la e fornecer um título ou um conteúdo \\ \midrule
+RF02 & Para ler anotações é necessário que existam anotações criadas \\ \midrule
+RF03 & Ao modificar anotação o usuário deve selecionar uma anotação criada e alterar o campo do título ou conteúdo   \\ \midrule
+RF04 & Para apagar anotações o usuário deve selecionar uma anotação existente e confirmar que deseja apagá-la. \\ \midrule
+
+RF05 & Para criar etiquetas o usuário deve sinalizar que quer criá-la e fornecer um nome. \\ \midrule
+RF06 & Para ler etiquetas o usuário deve selecionar uma etiqueta existente \\ \midrule
+RF07 & Para modificar etiquetas o usuário deve selecionar uma etiqueta que já exista e modificar o seu conteúdo \\ \midrule
+RF08 & Para apagar etiquetas deve ser selecionada, pelo usuário, uma etiqueta existente, e essa ação de apagar deve ser confirmada para que se realize \\ \midrule
+RF09 & Para atribuir etiquetas o usuário deve selecionar uma anotação e uma etiqueta existente \\ \midrule
+
+RF10 & Para realizar uma cópia de segurança na nuvem o usuário deve acessar uma conta já existente, caso não tiver é necessário criar uma nova conta  \\ \midrule
+
+RF11 & Após ter criado a conta o usuário deve confirmar seu e-mail para que sua conta seja validada\\ \midrule
+
+RF12 & Para criar uma lista de tarefas o usuário deve sinalizar que quer criá-la e fornecer um título \\ \midrule
+RF13 & Para ler uma lista de tarefas é necessário que existam listas de tarefas criadas \\ \midrule
+RF14 & Para modificar uma lista de tarefas o usuário deve selecionar uma lista criada e alterar o campo do título \\ \midrule
+RF15 & Para apagar listas de tarefas o usuário deve selecionar uma existente e confirmar que deseja apagá-la \\ \midrule
+
+RF16 & Para criar uma tarefa o usuário deve sinalizar que quer criá-la e fornecer um conteúdo \\ \midrule
+RF17 & Para ler uma tarefa é necessário que esta exista \\ \midrule
+RF18 & Para modificar uma tarefa o usuário deve selecionar uma tarefa e alterar os campos de conteúdo ou de conclusão da tarefa \\ \midrule
+RF19 & Para apagar tarefas o usuário deve selecionar uma existente e confirmar que deseja apagá-la \\ \midrule
+RF20 & O sistema deve encaminhar alerta quando um lembrete for acionado. \\ \midrule
+RF21 & Para um usuário criar um lembrete ele deve sinalizar que quer criá-lo em uma tarefa e configurar os horários que deseja ser notificado\\ \midrule
+RF22 & O usuário pode cronometrar o tempo gasto para executar uma tarefa, que corresponde ao período de tempo entre a criação  e a marcação da tarefa como concluída \\\midrule
+RF23 & Após a criação da conta o usuário pode gerenciar a mesma, podendo alterar a senha e e-mail\\\midrule
+RF24 & Após a criação de uma anotação o usuário pode arquivar a mesma para não visualizar as anotações menos importantes junto com as demais\\\midrule 
+RF25 & Após arquivar uma anotação o usuário pode desarquivar uma anotação para visualizar junto com as demais\\\bottomrule
+ 
+\end{longtable}
+
+\section{Casos de uso}
+
+\IBGEtabfontsize
+\begin{longtable}{@{}lll@{}}
+\caption{Relação entre requisitos e casos de uso}
+\label{tab:requisitos_x_casos_de_uso} \\
+\toprule
+\textbf{Id.} & \textbf{Requisitos} & \textbf{Nome} \\ \midrule
+UC01 & RF01, RF02, RF03, RF04, RF24, RF25 & Gerência de Anotações\\ \midrule
+UC02 & RF01, RF05, RF06, RF07, RF08, RF09 & Gerência de Etiquetas\\ \midrule
+UC03 & RF012, RF13, RF14, RF15, RF16, RF17, RF18, RF19, RF21, RF22 & Gerência de Tarefas\\ \midrule
+UC04 & RF10 & Gerência de Backup\\ \midrule
+UC05 & RF10, RF11, RF23 & Gerência de Conta\\ \midrule
+UC06 & RF21, RF22 & Gerência de Notificações\\ \bottomrule
+\end{longtable}
+
+\section{Atores}
+\IBGEtabfontsize
+\begin{longtable}{@{}p{0.05\textwidth}p{0.25\textwidth}p{0.65\textwidth}@{}}
+\caption{Atores e casos de uso relacionados}
+\label{tab:atores} \\
+\toprule
+\textbf{Id.} & \textbf{Atores} & \textbf{Caso de uso} \\ \midrule
+A01 & Usuário & Gerência de Anotações, Gerência de Tarefas, Gerência de Etiquetas, Gerência de Notificações e Gerência de Conta\\ \midrule
+A02 & Cloud Firestore & Gerência de backup\\ \midrule
+A03 & Firebase Auth & Gerência de Conta \\ \bottomrule
+\end{longtable}
+
+\section{Diagrama de casos de uso}
+\begin{figure}[htb]
+    \centering
+    \includegraphics[keepaspectratio=true,width=0.8\textwidth,clip=true,trim=1cm 9cm 1cm 1cm]{notoriousnote-casos-de-uso.pdf}
+    \caption{Diagrama de casos de uso do sistema}
+    \label{fig:diagrama_casos_uso}
+\end{figure}
+
+\part{Especificação de casos de uso}
+
+\chapter{UC01 - Gerência de Anotações}
+
+\section{Descrição} 
+Caso de uso responsável por criar, ler, editar, excluir e arquivar anotações. O usuário interage com a tela principal da aplicação, que disponibiliza as possibilidades de gerência de anotações mencionadas previamente, e uma tela dedicada a edição da anotação.
+
+
+\section{Fluxo básico de eventos}
+
+
+\begin{enumerate}
+    \item O usuário inicia aplicação
+    \item O sistema carrega as anotações existentes
+    \item O usuário ao criar uma anotação preenche os campos título ou corpo.
+    \item O usuário salva a anotação
+    \item O sistema valida se os campos obrigatórios estão preenchidos
+    \item O sistema disponibiliza a anotação salva na tela inicial da aplicação
+    \item O usuário pode apagar a anotação
+    \item O usuário pode editar a anotação
+    \item O usuário pode ler as anotações
+    \item O usuário pode arquivas as anotações
+    
+\end{enumerate}
+
+\section{Fluxos alternativos}
+
+% Área de funcionalidade
+\subsection{Criação de anotações}
+% subfluxo
+\subsubsection{Criar anotação}
+\begin{enumerate}
+    \item O usuário aciona a opção de  criar a anotação
+    \item O sistema disponibiliza uma janela para criação da anotação
+    \item O usuário escreve nos campos de título e conteúdo da anotação
+    \item O usuário seleciona uma das etiquetas disponíveis na aplicação
+    \item O usuário seleciona a opção de salvar a anotação
+    \item A anotação é salva com o título, conteúdo e etiquetas selecionadas pelo usuário
+    \item Caso o título e o conteúdo sejam nulos ou vazios, a anotação não será salva e o sistema informará ao usuário sobre o erro
+    \item S istema a janela de criação da anotação para ser preenchidos novamente.
+    \item Caso usuário deseje cancelar a criação da anotação ele pode selecionar o botão de sair  
+\end{enumerate}
+
+% Área de funcionalidade
+\subsection{Leitura de anotações}
+% subfluxo
+\subsubsection{Ler anotações}
+\begin{enumerate}
+    \item O usuário ao iniciar a aplicação terá disponível para leitura todas as anotações não excluídas ou arquivadas
+    \item Caso o usuário deseje visualizar as anotações arquivadas, deve selecionar uma tela específica
+\end{enumerate}
+
+% Área de funcionalidade
+\subsection{Edição de anotações}
+% subfluxo
+\subsubsection{Editar anotação}
+\begin{enumerate}
+    \item O usuário seleciona a anotação que deseja editar ou arquivar
+    \item O sistema disponibiliza uma janela onde o usuário pode editar os campos de título e conteúdo da anotação
+    \item O sistema disponibiliza ao usuário as etiquetas registradas
+    \item O usuário preenche os campos de título, conteúdo e as etiquetas desejadas
+    \item O usuário sinaliza que deseja salvar a anotação com os conteúdos inseridos
+    \item Caso os campos de conteúdo e título não sejam nulos ou vazios, a anotação será salva
+    \item Após a anotação ser salva, o usuário será levado à tela principal
+    \item Caso os campos de conteúdos sejam nulos ou vazios a anotação não será salva e o sistema informará o erro ao usuário
+\end{enumerate}
+
+% Área de funcionalidade
+\subsection{Apagar anotações}
+% subfluxo
+\subsubsection{Apagar anotação}
+\begin{enumerate}
+    \item O usuário aciona que deseja deletar uma anotação em uma anotação existente
+    \item O sistema questiona o usuário se ele realmente deseja realizar essa operação
+    \item Se o usuário confirmar o desejo, a anotação é excluída
+    \item Se o usuário não confirmar a operação de apagar anotação, o sistema simplesmente retorna à tela principal
+\end{enumerate}
+
+% \section{Fluxos excepcionais}
+
+% \subsection{Editar anotação de forma inválida}
+
+% \section{Subfluxos}
+% Nenhum especificado
+
+% \section{Cenários Chave}
+
+% \section{Condições prévias}
+
+% \section{Condições posteriores}
+
+% \section{Pontos de extensão}
+
+% \section{Requisitos especiais}
+
+% \section{Informações adicionais}
+
+% \chapter{Lições Aprendidas}
+%[Liste as lições aprendidas na retrospectiva, com ênfase especial nas ações a serem tomadas para melhorar, por exemplo: o ambiente de desenvolvimento, o processo ou a colaboração da equipe.]
+
+% ----------------------------------------------------------
+% Capitulo com exemplos de comandos inseridos de arquivo externo
+% ----------------------------------------------------------
+
+% ---
+% Este capítulo, utilizado por diferentes exemplos do abnTeX2, ilustra o uso de
+% comandos do abnTeX2 e de LaTeX.
+% ---
+
+% \include{abntex2-modelo-include-comandos}
+
+% ----------------------------------------------------------
+% Parte de resultados
+% ----------------------------------------------------------
+% \part{Resultados}
+
+% ---
+% Capitulo de revisão de literatura
+% ---
+% \chapter{Lorem ipsum dolor sit amet}
+
+% ---
+% \section{Aliquam vestibulum fringilla lorem}
+% ---
+
+% \lipsum[1]
+
+% \lipsum[2-3]
+
+% ---
+% Finaliza a parte no bookmark do PDF
+% para que se inicie o bookmark na raiz
+% e adiciona espaço de parte no Sumário
+% ---
+\phantompart
+
+% ---
+% Conclusão
+% ---
+% \chapter{Conclusão}
+% ---
+
+% \lipsum[31-33]
+
+% ----------------------------------------------------------
+% ELEMENTOS PÓS-TEXTUAIS
+% ----------------------------------------------------------
+\postextual
+
+% ----------------------------------------------------------
+% Referências bibliográficas
+% ----------------------------------------------------------
+%[Listar as referências utilizadas neste documento]
+\bibliography{referencias_visao.bib}
+
+% ----------------------------------------------------------
+% Glossário
+% ----------------------------------------------------------
+%
+% Consulte o manual da classe abntex2 para orientações sobre o glossário.
+%
+%\glossary
+
+% ----------------------------------------------------------
+% Apêndices
+% ----------------------------------------------------------
+
+% ---
+% Inicia os apêndices
+% ---
+% \begin{apendicesenv}
+
+% Imprime uma página indicando o início dos apêndices
+% \partapendices
+
+% ----------------------------------------------------------
+% \chapter{Quisque libero justo}
+% ----------------------------------------------------------
+
+% \lipsum[50]
+
+% ----------------------------------------------------------
+% \chapter{Nullam elementum urna vel imperdiet sodales elit ipsum pharetra ligula
+% ac pretium ante justo a nulla curabitur tristique arcu eu metus}
+% ----------------------------------------------------------
+% \lipsum[55-57]
+
+% \end{apendicesenv}
+% ---
+
+
+% ----------------------------------------------------------
+% Anexos
+% ----------------------------------------------------------
+
+% ---
+% Inicia os anexos
+% ---
+% \begin{anexosenv}
+
+% Imprime uma página indicando o início dos anexos
+% \partanexos
+
+% ---
+% \chapter{Morbi ultrices rutrum lorem.}
+% ---
+% \lipsum[30]
+
+% ---
+% \chapter{Cras non urna sed feugiat cum sociis natoque penatibus et magnis dis
+% parturient montes nascetur ridiculus mus}
+% ---
+
+% \lipsum[31]
+
+% ---
+% \chapter{Fusce facilisis lacinia dui}
+% ---
+
+% \lipsum[32]
+
+% \end{anexosenv}
+
+%---------------------------------------------------------------------
+% INDICE REMISSIVO
+%---------------------------------------------------------------------
+
+\phantompart
+
+\printindex
+
+%---------------------------------------------------------------------
+% Formulário de Identificação (opcional)
+%---------------------------------------------------------------------
+% \chapter*[Formulário de Identificação]{Formulário de Identificação}
+% \addcontentsline{toc}{chapter}{Exemplo de Formulário de Identificação}
+% \label{formulado-identificacao}
+
+% Exemplo de Formulário de Identificação, compatível com o Anexo A (informativo)
+% da ABNT NBR 10719:2015. Este formulário não é um anexo. Conforme definido na
+% norma, ele é o último elemento pós-textual e opcional do relatório.
+
+% \bigskip
+
+% \begin{tabular}{|p{9cm}|p{5cm}|}
+% \hline
+% \multicolumn{2}{|c|}{\textbf{\large Dados do Relatório Técnico e/ou científico}}\\
+% \hline
+% \multirow{4}{10cm}[24pt]{Título e subtítulo}& Classificação de segurança\\
+%                   & \\
+%                   \cline{2-2}
+%                   & No.\\
+%                   & \\
+
+% \hline
+% Tipo de relatório & Data\\
+% \hline
+% Título do projeto/programa/plano & No.\\
+% \hline
+% \multicolumn{2}{|l|}{Autor(es)} \\
+% \hline
+% \multicolumn{2}{|l|}{Instituição executora e endereço completo} \\
+% \hline
+% \multicolumn{2}{|l|}{Instituição patrocinadora e endereço completo} \\
+% \hline
+% \multicolumn{2}{|l|}{Resumo}\\[3cm]
+% \hline
+% \multicolumn{2}{|l|}{Palavras-chave/descritores}\\
+% \hline
+% \multicolumn{2}{|l|}{
+% Edição \hfill No. de páginas \hfill No. do volume \hfill Nº de classificação \phantom{XXXX}} \\
+% \hline
+% \multicolumn{2}{|l|}{
+% ISSN \hfill \hfill Tiragem \hfill Preço \phantom{XXXXXXXX}} \\
+% \hline
+% \multicolumn{2}{|l|}{Distribuidor} \\
+% \hline
+% \multicolumn{2}{|l|}{Observações/notas}\\[3cm]
+% \hline
+% \end{tabular}
+
+\end{document}
