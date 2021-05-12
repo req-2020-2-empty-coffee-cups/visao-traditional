@@ -148,7 +148,7 @@
 \titulo{NotoriousNote \\ \huge{Visão do Projeto} \\ \Large{Abordagem Tradicional}}
 \autor{Equipe EmptyCoffeeCups \\ Davi Antônio da Silva Santos \and Marcos Adriano \and Jonathan Jorge Barbosa Oliveira \and Wellington Jonathan}
 \local{Brasília, Distrito Federal, Brasil}
-\data{2021, 2021.05.10-preview}
+\data{2021, 2021.05.11-preview}
 \instituicao{%
   Universidade de Brasília -- UnB
   \par
@@ -323,6 +323,7 @@
 \toprule
 \textbf{Data} & \textbf{Versão} & \textbf{Descrição} & \textbf{Autor} \\ \midrule \endhead
 10/05/2021 & 2021.05.10-preview & \begin{tabular}{@{}p{0.6\textwidth}@{}}Versão inicial deste documento de visão por abordagem tradicional produzida a partir da versão 2021.05.04-preview do documento de visão por abordagem ágil \\ Remoção da parte de abordagem ágil \\ Renomear parte Abordagem Tradicional para Atividades da Engenharia de Requisitos \\ Renomear capítulo Requisitos Tradicionais para Requisitos \\ Alterar descrição do RF19 \\ Corrigir tabela de planejamento de gerência para refletir a mudança de paradigma da Engenharia de Requisitos \\ Atualizar Android Studio de 4.1.3 para 4.2 \\ Atualizar Flutter de 2.0.4 para 2.0.6 \\ Atualizar Kotlin para 1.5.0 \\ Especificar a diferença entre o Gradle e o Gradle Plug-in \\ Atualizar extensão Kotlin da versão 1.4.31-release-Studio4.1 para 202-1.5.0-release-764-AS8194.7 \\ Atualizar plug-in Dart de 201.9335 para 202.8488 \\ Atualizar plug-in Flutter de 55.1.1 para 56.0.2 \end{tabular} & Davi Antônio da Silva Santos \\ \midrule
+11/05/2021 & 2021.05.11-preview & \begin{tabular}{@{}p{0.6\textwidth}@{}}Adicionar risco RS07 \\ Iniciar capítulo de lições aprendidas \\ Atualizar MVP \\ Modificar as descrições dos requisitos funcionais \\ Modificar nomes dos casos de uso para que estejam adequados ao padrão (verbo de ação) \\ Atualizar diagrama de casos de uso corrigindo nomes e relações de extensão \\ Alteração do Processo de Desenvolvimento e Mensuração, da Matriz de comunicação, dos Critérios de Replanejamento e da Organização do projeto para refletir a perspectiva tradicional \\ Especificação do UC01 \\ Acrescentar necessidades à tabela de requisitos funcionais \\ Adicionar informações relativas ao MVP, à implementação na etapa ágil e reformatar tabela de relação entre requisitos e casos de uso \end{tabular} & Equipe EmptyCoffeCups \\ \midrule
  & & & \\ \bottomrule
 \end{longtable}
 \cleardoublepage
@@ -471,13 +472,13 @@ Usuário & Pessoas que utilizarão o aplicativo & \makecell[c{p{0.5\textwidth}}]
 
 \section{Mínimo Produto Viável (MVP)}
 %[Forneça uma lista de características mínimas que o produto deve possuir para que possa ser lançado]
+O mínimo produto viável (MVP) deve possuir as seguintes características funcionais:
 \begin{itemize}
-    % \item Aplicação deve ser executável em sistemas operacionais móveis Android com suporte as APIs 24 a 30;
     \item Criar, apagar, editar e visualizar de notas de texto com título e conteúdo;
     \item Criar, apagar, editar e visualizar etiquetas;
-    \item Atribuir etiquetas a uma anotação;
+    \item Atribuir etiquetas a uma anotação.
     % \item Exportar notas e listas de tarefas em texto puro;
-    \item Visualizar notas por etiquetas específicas.
+    % \item Visualizar notas por etiquetas específicas.
     % \item Criação de listas de tarefa com título e tarefas que podem ser registradas como terminadas ou não;
     % \item Capacidade de salvar notas e listas de tarefa em nuvem (Cloud Firestore);
     % \item Capacidade de exportar notas e listas de tarefas em JSON;
@@ -487,7 +488,7 @@ Usuário & Pessoas que utilizarão o aplicativo & \makecell[c{p{0.5\textwidth}}]
 \chapter{Visão Geral do Projeto}
 \section{Organização do Projeto}
 %[apresentada a divisão de atribuições e responsabilidades entre os membros do projeto, sem qualquer relação de hierarquia ou grau de importância. Todos os integrantes são igualmente importantes e responsáveis pelo sucesso do projeto.]
-A organização do projeto seguirá a divisão de papéis proposta pelo \textit{framework} Scrum \cite{scrum_guide}.
+% A organização do projeto seguirá a divisão de papéis proposta pelo \textit{framework} Scrum \cite{scrum_guide}.
 
 \begin{table}[ht]
 \IBGEtab{%
@@ -497,9 +498,10 @@ A organização do projeto seguirá a divisão de papéis proposta pelo \textit{
 \begin{tabular}{@{}p{0.2\textwidth}p{0.24\textwidth}p{0.24\textwidth}p{0.24\textwidth}@{}}
 \toprule
 \textbf{Papel} & \textbf{Atribuições} & \textbf{Responsável} & \textbf{Participantes} \\ \midrule
-Desenvolvedor & \makecell[c{p{0.24\textwidth}}]{Membro da equipe ágil\\Execução das disciplinas de Engenharia de Software} & Jonathan Jorge, \foreignlanguage{english}{Wellington} Jonathan & Davi Antônio, Jonathan Jorge, Marcos Adriano, Wellington Jonathan\\ \midrule
-Scrum Master & Responsável pelo cumprimento da metodologia de desenvolvimento Scrum & Marcos Adriano & - \\ \midrule
-Product Owner & Responsável por manter o conceito das funcionalidades e melhorias, de forma que sigam a visão definida para o produto ou projeto. & Davi Antônio & - \\ \midrule
+\textit{Developer} & \makecell[c{p{0.24\textwidth}}]{Membro da equipe \\ Escrita e construção do software} & Jonathan Jorge, \foreignlanguage{english}{Wellington} Jonathan & Davi Antônio, Jonathan Jorge, Marcos Adriano, Wellington Jonathan\\ \midrule
+\textit{Process Engineer} & Desenvolve, adapta e oferece suporte aos materiais de processo de software do projeto & Marcos Adriano & - \\ \midrule
+\textit{Project Manager} & Responsável por manter o conceito das funcionalidades e melhorias, de forma que sigam a visão definida para o produto ou projeto. & Davi Antônio & - \\ \midrule
+\textit{Configuration Manager} & Mantém infraestrutura e ambiente de desenvolvimento & Davi Antônio & - \\ \midrule
 Professor Orientador & Professor da disciplina de Requisitos de Software & Professor Dr. Marsicano & Professor Dr. Marsicano \\ \bottomrule
 \end{tabular}%
 }{%\fonte{}%
@@ -569,7 +571,7 @@ Todos & Ferramenta de compilação & Android SDK Build Tools & 30.0.3 & 04  & - 
 \begin{tabular}{@{}lllp{0.7\textwidth}@{}}
 \toprule
 \textbf{Iteração} & \textbf{Início} & \textbf{Fim} & \textbf{Incrementos Esperados} \\ \midrule
-1 & 06/04 & 22/04 & \begin{tabular}{@{}p{0.7\textwidth}@{}}Levantar problemas, necessidades, requisitos \\ Organizar requisitos em casos de uso \\ Elaborar diagrama de casos de uso \\ Atualização do documento de visão\end{tabular} \\ \midrule
+1 & 06/04 & 22/04 & \begin{tabular}{@{}p{0.7\textwidth}@{}}Levantar problemas, necessidades, requisitos \\ Organizar requisitos em casos de uso \\ Elaborar diagrama de casos de uso \\ Atualização do documento de visão (ainda misturando abordagem ágil e tradicional) com necessidades, requisitos, casos de uso e diagrama de casos de uso\end{tabular} \\ \midrule
 2 & 27/04 & 13/05 & \begin{tabular}{@{}p{0.7\textwidth}@{}}Separar documentos de visão em ágil e tradicional \\ Especificar casos de uso do MVP \\ Separar repositórios em código desenvolvido com as histórias e com os casos de uso \\ Geração da APK otimizada para lançamento \\ Entrega da versão final do documento de visão tradicional\end{tabular} \\ \bottomrule
 \end{tabular}%
 }{%\fonte{}%
@@ -578,17 +580,11 @@ Todos & Ferramenta de compilação & Android SDK Build Tools & 30.0.3 & 04  & - 
 
 \section{Processo de Desenvolvimento e Mensuração}
 % [Especifique como será acompanhado o progresso, por exemplo, por meio de reuniões de revisão diárias, avaliações de iteração, relatórios de Burndown de Projeto e Burndown de Iteração.]
-A equipe utilizará o \textit{framework} Scrum, com utilização reuniões semanais no lugar da \textit{daily} e com retrospectiva da \textit{sprint}, para gerenciar o projeto. O progresso será acompanhado usando-se um quadro Kanban na plataforma Github, a qual também atua como repositório remoto para o sistema de versionamento distribuído Git, que será utilizado para o controle de versão do código fonte.
+A equipe utilizará um processo de desenvolvimento tradicional semelhante ao Processo Unificado, mas bastante simplificada. A plataforma Github servirá como repositório remoto para o sistema de versionamento distribuído Git, que será utilizado para o controle de versão do código fonte e do documento de visão.
 
-Os requisitos do projeto serão separados em histórias de usuário e estas serão transformadas em cartões de um quadro Kanban que corresponderá ao \textit{backlog} do projeto usando-se o sistema de \textit{issues} disponibilizado pela plataforma.
+O documento de visão será elaborado em comum acordo entre os membros da equipe e conterá as especificações do MVP, do ambiente de desenvolvimento, os problemas do cliente, necessidades, requisitos funcionais e os casos de uso derivados. Esse documento também manterá um histórico de modificações e das ações tomadas em cada uma das iterações.
 
-Através da reunião de planejamento serão escolhidas as \textit{issues} do quadro de \textit{backlog} do produto que serão movidas para o \textit{backlog} de cada \textit{sprint}. Cada quadro possui colunas geradas a partir de etiquetas que identificam o estado da \textit{issue}: \textit{backlog} da \textit{sprint}, a fazer, fazendo, testando e feito.
-
-Um cartão será movido para a coluna a fazer assim que tiver um responsável atribuído; de a fazer para a coluna fazendo quando trabalho de codificação iniciar-se; de fazendo para testando enquanto é validado e de testando para pronto após a aprovação do Product Owner e do Professor Orientador na cerimônia de Revisão da \textit{Sprint}.
-
-A equipe acompanhará o desempenho atribuindo a cada história no \textit{backlog} do produto uma pontuação. Essa pontuação será atribuída pela equipe nas reuniões de planejamento usando-se a técnica de \textit{Planning Poker} \cite{planning_poker} usando a sequência de Fibonacci. Os pontos serão atribuídos após a discussão do grupo, e podem ser reatribuídos caso se considere que a atribuição inicial esteja desbalanceada.
-
-Para permitir um acompanhamento mais próximo do desenvolvimento, estimando a capacidade de desenvolvimento da equipe, será usada a métrica \textit{velocity} para cada iteração, a qual consiste no número de pontos de histórias executadas com sucesso numa dada \textit{sprint}. Caso aconteça uma mudança nos valores de pontos das histórias a métrica terá que ser recalculada.
+Os requisitos serão derivados a partir das necessidades do usuário levantadas pela equipe, derivadas a partir dos problemas encontrados. Os requisitos serão organizados em casos de uso e somente aqueles que fazem parte do MVP, ou seja, os que trazem maior valor para o cliente, serão especificados e implementados.
 
 % \section{\foreignlanguage{english}{\textit{Milestones}} e Objetivos do Projeto}
 
@@ -607,24 +603,9 @@ A comunicação do grupo é feita principalmente pelo Telegram e por reuniões n
 % \multirow{2}{=}{\begin{tabular}[c]{@{}p{0.25\textwidth}@{}}- Acompanhamento das Atividades em Andamento\\ - Acompanhamento dos Riscos, Compromissos, Ações Pendentes, Indicadores \end{tabular}} & - Equipe do Projeto & - Semanal & \multirow{2}{=}{\begin{tabular}[c]{@{}p{0.2\textwidth}@{}}- Ata de reunião\\ - Relatório de situação do projeto \end{tabular}} \\ \cmidrule(lr){2-3}
 %  &  & - Quinzenal &  \\ & & & \\ & & & \\ & & & \\ & & & \\ \midrule
 
+- Comunicar situação do projeto & \begin{tabular}[c]{@{}l@{}}- Equipe \\ - Professor\end{tabular} & - No final de cada iteração & \begin{tabular}[c]{@{}p{0.25\textwidth}@{}}- Comunicação com o Professor Orientador\\- Atualizações no documento de visão \end{tabular} \\ \midrule
 
-
-- Comunicar situação do projeto & \begin{tabular}[c]{@{}l@{}}- Equipe \\ - Professor\end{tabular} & - Semanal & \begin{tabular}[c]{@{}p{0.25\textwidth}@{}}- Comunicação com o Professor Orientador\\- Atualizações nos \foreignlanguage{english}{\textit{backlogs}} \end{tabular} \\ \midrule
-
-- Comunicar situação entre membros(\textit{Sprint Planning}) & \begin{tabular}[c]{@{}l@{}}- Equipe \\ \end{tabular} & - No inicio da Sprint & \begin{tabular}[c]{@{}p{0.25\textwidth}@{}}-  \textit{Product Backlog} da \textit{Sprint} \\  \end{tabular} \\ \midrule
-
-% - Comunicar situação entre membros(\textit{daily}) & \begin{tabular}[c]{@{}l@{}}- Equipe \\ \end{tabular} & - Seg , Quar e Sex & - \\ \midrule
-
-
-
-- Comunicar situação entre membros(\textit{Sprint Review}) & \begin{tabular}[c]{@{}l@{}}- Equipe \\ \end{tabular} & - No final da \textit{Sprint} & \begin{tabular}[c]{@{}p{0.25\textwidth}@{}}-  \\  \end{tabular} \\ \midrule
-
-
-
-
-- Comunicar situação entre membros (\textit{Sprint Retrospective}) & \begin{tabular}[c]{@{}l@{}}- Equipe \\ \end{tabular} & - No final da \textit{Sprint} & \begin{tabular}[c]{@{}p{0.25\textwidth}@{}}- Atualizações nos documentos de visão e nos \foreignlanguage{english}{\textit{backlogs}} \\  \end{tabular} \\ \bottomrule
-
-
+- Comunicar situação do projeto entre membros & \begin{tabular}[c]{@{}l@{}}- Equipe \\ \end{tabular} & - Semanalmente & \begin{tabular}[c]{@{}p{0.25\textwidth}@{}}- \\  \end{tabular} \\ \midrule
 
 \end{tabular}%
 }{%\fonte{}%
@@ -635,12 +616,11 @@ A comunicação do grupo é feita principalmente pelo Telegram e por reuniões n
 
 Com o andamento do projeto, previsivelmente ocorreram conflitos que devem ser identificados o mais breve possível, e que devem ser imediatamente solucionados. O tratamento desses conflitos deve ser algo orgânico do fluxo de desenvolvimento de software, e ter antecipadamente para diferentes problemas subsequentes frentes de resolução, sendo que nem todo conflito pode ou deve ser solucionado em uma primeira instancia.
 
-O fluxo do projeto deve ter em seu acompanhamento um monitoramento continuo de revisão e correção. Deve-se garantir quando encontrados conflitos esses devem ser imediatamente tratados com prioridade para o \textit{Scrum Master} e escalonados, caso seja necessário, ao Professor Orientador para sua dada resolução, evitando o comprometimento do fluxo de projeto.
+O fluxo do projeto deve ter em seu acompanhamento um monitoramento continuo de revisão e correção. Deve-se garantir quando encontrados conflitos esses devem ser imediatamente tratados com prioridade para o \textit{Project Manager} e escalonados, caso seja necessário, ao Professor Orientador para sua dada resolução, evitando o comprometimento do fluxo de projeto.
 
-Quando tratado o \textit{backlog}, todo conflito deve ser mensurado e verificado de antemão com o \textit{Product Owner}, se houver problemas na resolução, a situação será levada para o Professor Orientador, assim como conflitos que põem em risco o projeto.
 
 \section{Gerenciamento de Riscos}
-O objetivo principal da Gestão de Riscos é controlar  impedimentos de qualquer tipo, que possa surgir durante o ciclo de desenvolvimento , impedindo o progresso do projeto de acordo com as previsões iniciais. Comumente citado no PMBOK também pode ser utilizado em projetos que utilizem metodologias ágeis  assim como o \textit{Scrum}. Dessas forma os riscos elicitados foram os seguintes:
+O objetivo principal da Gestão de Riscos é controlar  impedimentos de qualquer tipo, que possa surgir durante o ciclo de desenvolvimento , impedindo o progresso do projeto de acordo com as previsões iniciais. Dessas forma os riscos elicitados foram os seguintes:
 \begin{table}[ht]
 \IBGEtab{%
 \caption{Lista de riscos}%
@@ -652,9 +632,11 @@ O objetivo principal da Gestão de Riscos é controlar  impedimentos de qualquer
 RS01 & Não Versionamento do código & Refatoração do código para ser aceito na versão mais recente do projeto. & Médio \\ \midrule
 RS02 & Equipe desorganizada & Reunião para alinhar a equipe. & Baixo \\ \midrule
 RS03 & Não priorização dos requisitos & Analisar as dependências dos requisitos e priorizar os que há menos dependência & Baixo\\ \midrule
-RS04 & Má elicitação dos requisitos & Refazer o requisito e todas as partes que o mesmo está envolvido & Alto \\ \midrule
-RS05 & Falta de comunicação da equipe & Reunir para alinhar a equipe & Médio \\ \midrule
-RS06 & Não integração do código & Refatoração do código para permitir integração & Médio \\ \midrule
+RS04 & Má elicitação dos requisitos (Necessidades, requisitos e casos de uso) & Refazer o requisito e todas as partes que o mesmo está envolvido. & Alto \\ \midrule
+RS05 & Falta de comunicação da equipe & Reunir para alinhar a equipe & Médio. \\ \midrule
+RS06 & Não integração do código & Refatoração do código para permitir integração & Médio. \\ \midrule
+RS07 & Perda de integrante da equipe & Redistribuição das atividades entre os integrantes da equipe & Alto \\ \midrule
+
 \end{tabular}%
 }{%\fonte{}%
 }
@@ -674,9 +656,8 @@ RS06 & Não integração do código & Refatoração do código para permitir int
 Será necessário replanejar o projeto caso algumas dessas situações venha acontecer:
 \begin{itemize}
     \item Algum integrante ficar impossibilitado de colaborar com o projeto;
-    \item Caso o professor considere inadequado o tema;
-    \item Caso os requisitos não sejam suficientes para aplicar o conteúdo da unidade curricular.
     \item Caso a tecnologia escolhida torne-se inadequada ao desenvolvimento do projeto.
+    \item Em casos de \textit{feedbacks} do professor orientador.
 \end{itemize}
 
 \part{Atividades da Engenharia de Requisitos}
@@ -697,161 +678,218 @@ N3 &Lembrar compromissos & Média & Recordar dos compromissos de forma simples e
 
 \section{Requisitos funcionais}
 \IBGEtabfontsize
-\begin{longtable}{@{}p{0.05\textwidth}p{0.95\textwidth}@{}}
-\caption{Requisitos}
+\begin{longtable}{@{}lllp{0.60\textwidth}@{}}
+\caption{Requisitos funcionais e necessidades}
 \label{tab:requisitos} \\
 \toprule
-\textbf{Id.} & \textbf{Descrição} \\ \midrule
-RF01 & Para criar uma anotação o usuário deve sinalizar que quer criá-la e fornecer um título ou um conteúdo \\ \midrule
-RF02 & Para ler anotações é necessário que existam anotações criadas \\ \midrule
-RF03 & Ao modificar anotação o usuário deve selecionar uma anotação criada e alterar o campo do título ou conteúdo   \\ \midrule
-RF04 & Para apagar anotações o usuário deve selecionar uma anotação existente e confirmar que deseja apagá-la. \\ \midrule
+\textbf{Id.} & \textbf{Nec.} & \textbf{Nome} & \textbf{Descrição} \\ \midrule
+RF01 & N1 & Criar anotação & O sistema deve permitir criar uma anotação \phantomsection \label{RF01} \\ \midrule
+RF02 & N1 & Visualizar anotação & O sistema deve permitir a visualização das anotações \phantomsection \label{RF02} \\ \midrule
+RF03 & N1 & Modificar anotação & O sistema deve permitir a modificação das anotações \phantomsection \label{RF03}\\ \midrule
+RF04 & N1 & Apagar anotação & O sistema deve permitir apagar anotações \phantomsection \label{RF04} \\ \midrule
+RF05 & N1 & Criar etiqueta & O sistema deve permitir criar etiquetas com nome \phantomsection \label{RF05} \\ \midrule
+RF06 & N1 & Visualizar etiqueta & O sistema deve permitir visualizar etiquetas \phantomsection \label{RF06} \\ \midrule
+RF07 & N1 & Modificar etiqueta & O sistema deve permitir a modificação do nome de cada etiqueta\phantomsection \label{RF07} \\ \midrule
+RF08 & N1 & Remover etiqueta & O sistema deve permitir a remoção de etiquetas \phantomsection \label{RF08} \\ \midrule
+RF09 & N1 & Atribuir etiqueta & O sistema deve permitir a atribuição de etiquetas a anotações \phantomsection \label{RF09} \\ \midrule
 
-RF05 & Para criar etiquetas o usuário deve sinalizar que quer criá-la e fornecer um nome. \\ \midrule
-RF06 & Para ler etiquetas o usuário deve selecionar uma etiqueta existente \\ \midrule
-RF07 & Para modificar etiquetas o usuário deve selecionar uma etiqueta que já exista e modificar o seu conteúdo \\ \midrule
-RF08 & Para apagar etiquetas deve ser selecionada, pelo usuário, uma etiqueta existente, e essa ação de apagar deve ser confirmada para que se realize \\ \midrule
-RF09 & Para atribuir etiquetas o usuário deve selecionar uma anotação e uma etiqueta existente \\ \midrule
-
-RF10 & Para realizar uma cópia de segurança na nuvem o usuário deve acessar uma conta já existente, caso não tiver é necessário criar uma nova conta  \\ \midrule
-
-RF11 & Após ter criado a conta o usuário deve confirmar seu e-mail para que sua conta seja validada\\ \midrule
-
-RF12 & Para criar uma lista de tarefas o usuário deve sinalizar que quer criá-la e fornecer um título \\ \midrule
-RF13 & Para ler uma lista de tarefas é necessário que existam listas de tarefas criadas \\ \midrule
-RF14 & Para modificar uma lista de tarefas o usuário deve selecionar uma lista criada e alterar o campo do título \\ \midrule
-RF15 & Para apagar listas de tarefas o usuário deve selecionar uma existente e confirmar que deseja apagá-la \\ \midrule
-
-RF16 & Para criar uma tarefa o usuário deve sinalizar que quer criá-la e fornecer um conteúdo \\ \midrule
-RF17 & Para ler uma tarefa é necessário que esta exista \\ \midrule
-RF18 & Para modificar uma tarefa o usuário deve selecionar uma tarefa e alterar os campos de conteúdo ou de conclusão da tarefa \\ \midrule
-RF19 & Para apagar tarefas o usuário deve selecionar uma existente e confirmar que deseja apagá-la \\ \midrule
-RF20 & O sistema deve encaminhar alerta quando um lembrete for acionado. \\ \midrule
-RF21 & Para um usuário criar um lembrete ele deve sinalizar que quer criá-lo em uma tarefa e configurar os horários que deseja ser notificado\\ \midrule
-RF22 & O usuário pode cronometrar o tempo gasto para executar uma tarefa, que corresponde ao período de tempo entre a criação  e a marcação da tarefa como concluída \\\midrule
-RF23 & Após a criação da conta o usuário pode gerenciar a mesma, podendo alterar a senha e e-mail\\\midrule
-RF24 & Após a criação de uma anotação o usuário pode arquivar a mesma para não visualizar as anotações menos importantes junto com as demais\\\midrule 
-RF25 & Após arquivar uma anotação o usuário pode desarquivar uma anotação para visualizar junto com as demais\\\bottomrule
- 
+RF10 & N2 & Backup em nuvem & O sistema deve permitir backups em nuvem \phantomsection \label{RF10} \\ \midrule
+RF11 & N2 & Criar conta & O sistema deve permitir criar conta para backup em nuvem \phantomsection \label{RF11} \\ \midrule
+RF12 & N1 & Criar lista & O sistema deve permitir criação de listas de tarefa \phantomsection \label{RF12} \\ \midrule
+RF13 & N1 & Visualizar lista & O sistema deve permitir a visualização de listas de tarefa \phantomsection \label{RF13} \\ \midrule
+RF14 & N1 & Modificar lista & O sistema deve permitir a modificação das listas de tarefa \phantomsection \label{RF14} \\ \midrule
+RF15 & N1 & Apagar lista & O sistema deve permitir apagar listas de tarefa \phantomsection \label{RF15} \\ \midrule
+RF16 & N1 & Criar tarefa & O sistema deve permitir a criação de tarefas \phantomsection \label{RF16} \\ \midrule
+RF17 & N1 & Visualizar tarefa & O sistema deve permitir a visualização das tarefas \phantomsection \label{RF17} \\ \midrule
+RF18 & N1 & Modificar tarefa & O sistema deve permitir a modificação de uma tarefa \phantomsection \label{RF18} \\ \midrule
+RF19 & N1 & Apagar tarefa & O sistema deve permitir apagar uma tarefa \phantomsection \label{RF19} \\ \midrule
+RF20 & N3 & Encaminhar alerta & O sistema deve encaminhar alerta quando um lembrete for acionado \phantomsection \label{RF20} \\ \midrule
+RF21 & N3 & Criar alerta & O sistema deve permitir a criação de lembretes com notificação \phantomsection \label{RF21} \\ \midrule
+RF22 & N3 & Cronometrar tarefa & O sistema deve permitir cronometrar o tempo de execução de uma tarefa \phantomsection \label{RF22} \\ \midrule
+RF23 & N3 & Alterar Credenciais & O sistema deve permitir alteração da senha e do e-mail da conta\phantomsection \label{RF23} \\ \midrule
+RF24 & N1 & Arquivar anotações & O sistema deve permitir arquivar anotações \phantomsection \label{RF24} \\ \midrule 
+RF25 & N1 & Desarquivar anotações & O sistema deve permitir desarquivar anotações \phantomsection \label{RF25} \\ \bottomrule
 \end{longtable}
 
 \section{Casos de uso}
 
 \IBGEtabfontsize
-\begin{longtable}{@{}lll@{}}
+\begin{longtable}{@{}lp{0.5\textwidth}ll@{}}
 \caption{Relação entre requisitos e casos de uso}
 \label{tab:requisitos_x_casos_de_uso} \\
 \toprule
-\textbf{Id.} & \textbf{Requisitos} & \textbf{Nome} \\ \midrule
-UC01 & RF01, RF02, RF03, RF04, RF24, RF25 & Gerência de Anotações\\ \midrule
-UC02 & RF01, RF05, RF06, RF07, RF08, RF09 & Gerência de Etiquetas\\ \midrule
-UC03 & RF012, RF13, RF14, RF15, RF16, RF17, RF18, RF19, RF21, RF22 & Gerência de Tarefas\\ \midrule
-UC04 & RF10 & Gerência de Backup\\ \midrule
-UC05 & RF10, RF11, RF23 & Gerência de Conta\\ \midrule
-UC06 & RF21, RF22 & Gerência de Notificações\\ \bottomrule
+\textbf{Id.} & \textbf{Requisitos} & \textbf{Nome} &\textbf{MVP/Ágil}\\ \midrule
+UC01 & \hyperref[RF01]{RF01} - Criar anotação, \hyperref[RF02]{RF02} - Visualizar anotação, \hyperref[RF03]{RF03} - Modificar anotação, \hyperref[RF04]{RF04} - Apagara anotação, \hyperref[RF24]{RF24} - Arquivar anotações, \hyperref[RF25]{RF25} - Desarquivar tarefa & Gerenciar anotações & Sim/Parcial \\ \midrule
+UC02 & \hyperref[RF05]{RF05} - Criar etiqueta, \hyperref[RF06]{RF06} - Visualizar etiqueta, \hyperref[RF07]{RF07} - Modificar etiqueta, \hyperref[RF08]{RF08} - Remover etiqueta, \hyperref[RF09]{RF09} - Atribuir etiqueta & Gerenciar etiquetas & Sim/Não \\ \midrule
+UC03 & \hyperref[RF12]{RF12} - Criar lista, \hyperref[RF13]{RF13} - Visualizar lista, \hyperref[RF14]{RF14} - Modificar lista, \hyperref[RF15]{RF15} - Apagar lista, \hyperref[RF16]{RF16} - Criar tarefa, \hyperref[RF17]{RF17} - Visualizar tarefa, \hyperref[RF18]{RF18} - Modificar tarefa, \hyperref[RF19]{RF19} - Apagar tarefa & Gerenciar tarefas & Sim/Não\\ \midrule
+UC04 & \hyperref[RF10]{RF10} - Backup em nuvem & Gerenciar backups & Não/Não\\ \midrule
+UC05 & \hyperref[RF11]{RF11} - Criar conta, \hyperref[RF23]{RF23} - Alterar Credenciais & Gerenciar conta & Não/Não\\ \midrule
+UC06 & \hyperref[RF20]{RF20} - Encaminhar alerta, \hyperref[RF21]{RF21} - Criar alerta, \hyperref[RF22]{RF22} - Cronometrar tarefa & Gerenciar notificações & Não/Não\\ \bottomrule
 \end{longtable}
 
 \section{Atores}
 \IBGEtabfontsize
-\begin{longtable}{@{}p{0.05\textwidth}p{0.25\textwidth}p{0.65\textwidth}@{}}
+\begin{longtable}{@{}lll@{}}
 \caption{Atores e casos de uso relacionados}
 \label{tab:atores} \\
 \toprule
 \textbf{Id.} & \textbf{Atores} & \textbf{Caso de uso} \\ \midrule
-A01 & Usuário & Gerência de Anotações, Gerência de Tarefas, Gerência de Etiquetas, Gerência de Notificações e Gerência de Conta\\ \midrule
-A02 & Cloud Firestore & Gerência de backup\\ \midrule
-A03 & Firebase Auth & Gerência de Conta \\ \bottomrule
+A01 & Usuário & \begin{tabular}{@{}l@{}}Gerenciar anotações \\ Gerenciar tarefas \\ Gerenciar etiquetas \\ Gerenciar notificações \\ Gerenciar conta \end{tabular} \\ \midrule
+A02 & Cloud Firestore & Gerenciar backups \\ \midrule
+A03 & Firebase Auth & Gerenciar conta \\ \bottomrule
 \end{longtable}
 
 \section{Diagrama de casos de uso}
 \begin{figure}[htb]
     \centering
-    \includegraphics[keepaspectratio=true,width=0.8\textwidth,clip=true,trim=1cm 9cm 1cm 1cm]{notoriousnote-casos-de-uso.pdf}
+    \includegraphics[keepaspectratio=true,width=0.8\textwidth]{notoriousnote-casos-de-uso.pdf}
     \caption{Diagrama de casos de uso do sistema}
     \label{fig:diagrama_casos_uso}
 \end{figure}
 
 \part{Especificação de casos de uso}
 
-\chapter{UC01 - Gerência de Anotações}
+\chapter{UC01 - Gerenciar Anotações}
 
 \section{Descrição} 
-Caso de uso responsável por criar, ler, editar, excluir e arquivar anotações. O usuário interage com a tela principal da aplicação, que disponibiliza as possibilidades de gerência de anotações mencionadas previamente, e uma tela dedicada a edição da anotação.
+Caso de uso responsável por criar, ler, editar, excluir e arquivar anotações. O usuário interage com o sistema, que disponibiliza as possibilidades de gerência de anotações mencionadas previamente, e uma interface a edição e criação da anotação. Há a possibilidade das anotações serem arquivadas e visualizadas em uma interface diferente para melhor organização das anotações não prioritárias para o usuário.
 
+\section{Atores}
+\begin{itemize}
+    \item[\textbf{Usuário}] Interessado em organizar seus compromissos em forma de anotações em texto.
+\end{itemize}
+
+\section{Regras de negócio}
+\IBGEtabfontsize
+\begin{longtable}{@{}lp{0.25\textwidth}p{0.6\textwidth}@{}}
+\caption{Regras de negócio}
+\label{tab:regras_de_negocio} \\
+\toprule
+\textbf{Id.} & \textbf{Nome} & \textbf{Descrição} \\ \midrule
+RN01 & Validação de anotação & A anotação será considerada válida se houver conteúdo nos campos de título ou conteúdo. Isto é, anotações com um dos dois campos nulo ou vazio são válidas, e anotações com ambos os campos vazios são inválidas \phantomsection \label{uc01:rn01_validacao_anotacao} \\ \midrule
+RN02 & Anotações arquivadas & Uma anotação é considerada arquivada se o conteúdo no campo numérico de arquivamento for configurado diferente de zero \phantomsection \label{uc01:rn02_flag_arquivar} \\ \bottomrule
+\end{longtable}
 
 \section{Fluxo básico de eventos}
 
-
 \begin{enumerate}
     \item O usuário inicia aplicação
-    \item O sistema carrega as anotações existentes
-    \item O usuário ao criar uma anotação preenche os campos título ou corpo.
-    \item O usuário salva a anotação
-    \item O sistema valida se os campos obrigatórios estão preenchidos
-    \item O sistema disponibiliza a anotação salva na tela inicial da aplicação
-    \item O usuário pode apagar a anotação
-    \item O usuário pode editar a anotação
-    \item O usuário pode ler as anotações
-    \item O usuário pode arquivas as anotações
+    \item O sistema carrega as anotações existentes \label{uc01:fluxo_base:carregar_anotacoes}
+    \item Se houver anotações disponíveis será iniciado o fluxo alternativo de visualizar anotação (\ref{uc01:fluxo_alternativo:ler_anotacao_nao_arquivada})
+    \item Se o usuário desejar visualizar as anotações arquivadas será iniciado o fluxo alternativo de ler anotação arquivada (\ref{uc01:fluxo_alternativo:ler_anotacao_arquivada})
+    \item Se o usuário desejar criar uma anotação será iniciado o fluxo alternativo de criar anotação (\ref{uc01:fluxo_alternativo:criar_anotacao}).
+    \item Se o usuário desejar apagar uma anotação será iniciado o fluxo alternativo de apagar anotação (\ref{uc01:fluxo_alternativo:apagar_anotacao_nao_arquivada})
+    \item Se o usuário desejar editar uma anotação será iniciado o fluxo alternativo de editar anotação (\ref{uc01:fluxo_alternativo:editar_anotacao_nao_arquivada})
+    \item O fluxo básico se encerra.
     
 \end{enumerate}
 
 \section{Fluxos alternativos}
 
 % Área de funcionalidade
-\subsection{Criação de anotações}
+\subsection{Visualização de anotações}
 % subfluxo
-\subsubsection{Criar anotação}
+\subsubsection{Visualizar anotações} \label{uc01:fluxo_alternativo:ler_anotacao_nao_arquivada}
+\begin{enumerate}   
+    \item Todas as anotações não arquivadas são disponibilizadas para o usuário.
+    \item O sistema disponibiliza título, o conteúdo e as etiquetas de cada uma das anotações.
+    \item Encerra o fluxo alternativo e retorna para o fluxo básico no passo \ref{uc01:fluxo_base:carregar_anotacoes}.
+\end{enumerate}
+
+\subsubsection{Visualizar anotações arquivadas} \label{uc01:fluxo_alternativo:ler_anotacao_arquivada}
 \begin{enumerate}
-    \item O usuário aciona a opção de  criar a anotação
-    \item O sistema disponibiliza uma janela para criação da anotação
-    \item O usuário escreve nos campos de título e conteúdo da anotação
-    \item O usuário seleciona uma das etiquetas disponíveis na aplicação
-    \item O usuário seleciona a opção de salvar a anotação
-    \item A anotação é salva com o título, conteúdo e etiquetas selecionadas pelo usuário
-    \item Caso o título e o conteúdo sejam nulos ou vazios, a anotação não será salva e o sistema informará ao usuário sobre o erro
-    \item S istema a janela de criação da anotação para ser preenchidos novamente.
-    \item Caso usuário deseje cancelar a criação da anotação ele pode selecionar o botão de sair  
+    \item Todas as anotações arquivadas (\hyperref[uc01:rn02_flag_arquivar]{RN02}) são disponibilizadas para o usuário.
+    \item Caso o usuário deseje editar a anotação será seguido o fluxo de edição \ref{uc01:fluxo_alternativo:editar_anotacao_arquivada}
+    \item Caso o usuário deseje apagar a anotação será seguido o fluxo alternativo de apagar anotação \ref{uc01:fluxo_alternativo:apagar_anotacao_arquivada}
+    \item Caso o usuário deseje visualizar as anotações não arquivadas o fluxo alternativo encerra e retorna para o fluxo básico no passo \ref{uc01:fluxo_base:carregar_anotacoes}.
 \end{enumerate}
 
 % Área de funcionalidade
-\subsection{Leitura de anotações}
+\subsection{Criação de anotações}
 % subfluxo
-\subsubsection{Ler anotações}
+\subsubsection{Criar anotação} \label{uc01:fluxo_alternativo:criar_anotacao}
 \begin{enumerate}
-    \item O usuário ao iniciar a aplicação terá disponível para leitura todas as anotações não excluídas ou arquivadas
-    \item Caso o usuário deseje visualizar as anotações arquivadas, deve selecionar uma tela específica
+    \item O sistema disponibiliza uma interface para criação da anotação
+    \item O sistema carrega as etiquetas existentes
+    \item O sistema disponibiliza edição do título, conteúdo, etiquetas e estado de arquivamento da anotação
+    \item O usuário modifica título, conteúdo, etiquetas ou estado de arquivamento da anotação \label{uc01:fluxo_alternativo:criar_anotacao:pode_escrever}
+    \item O usuário pode modificar o estado de arquivamento da anotação
+    \item O usuário pode selecionar uma das etiquetas disponíveis para atribuí-la à anotação
+    \item Caso o usuário cancele a operação de criação ele retornará para o fluxo básico no passo \ref{uc01:fluxo_base:carregar_anotacoes}.
+    \item Caso o usuário selecione a opção de salvar a anotação ela deve obedecer às \hyperref[uc01:rn01_validacao_anotacao]{RN01} e \hyperref[uc01:rn02_flag_arquivar]{RN02}. Caso não obedeça, o caso vai para o fluxo excepcional \ref{uc01:fluxo_excepcional:criacao_invalida}.
+    \item A anotação é criada com o título, conteúdo e etiquetas selecionadas pelo usuário
+    \item Encerra o fluxo alternativo e retorna para o fluxo básico no passo \ref{uc01:fluxo_base:carregar_anotacoes}.
 \end{enumerate}
 
 % Área de funcionalidade
 \subsection{Edição de anotações}
 % subfluxo
-\subsubsection{Editar anotação}
+\subsubsection{Editar anotação não arquivada} \label{uc01:fluxo_alternativo:editar_anotacao_nao_arquivada}
 \begin{enumerate}
-    \item O usuário seleciona a anotação que deseja editar ou arquivar
-    \item O sistema disponibiliza uma janela onde o usuário pode editar os campos de título e conteúdo da anotação
-    \item O sistema disponibiliza ao usuário as etiquetas registradas
-    \item O usuário preenche os campos de título, conteúdo e as etiquetas desejadas
-    \item O usuário sinaliza que deseja salvar a anotação com os conteúdos inseridos
-    \item Caso os campos de conteúdo e título não sejam nulos ou vazios, a anotação será salva
-    \item Após a anotação ser salva, o usuário será levado à tela principal
-    \item Caso os campos de conteúdos sejam nulos ou vazios a anotação não será salva e o sistema informará o erro ao usuário
+    \item O sistema disponibiliza uma interface para edição da anotação
+    \item O sistema carrega título, conteúdo, etiquetas e estado de arquivamento da anotação a ser editada
+    \item O sistema carrega as etiquetas existentes
+    \item O sistema disponibiliza edição do título, conteúdo, etiquetas e estado de arquivamento da anotação
+    \item O usuário modifica título, conteúdo, etiquetas ou estado de arquivamento da anotação \label{uc01:fluxo_alternativo:editar_anotacao_nao_arquivada:pode_escrever}
+    \item O usuário pode modificar o estado de arquivamento da anotação
+    \item O usuário pode selecionar uma das etiquetas disponíveis para atribuí-la à anotação
+    \item Caso o usuário cancele a operação de criação ele retornará para o fluxo básico no passo \ref{uc01:fluxo_base:carregar_anotacoes}.
+    \item Caso o usuário selecione a opção de salvar a anotação ela deve obedecer às \hyperref[uc01:rn01_validacao_anotacao]{RN01} e \hyperref[uc01:rn02_flag_arquivar]{RN02}. Caso não obedeça, o caso vai para o fluxo excepcional \ref{uc01:fluxo_excepcional:edicao_nao_arquivada_invalida}.
+    \item A anotação é salva com o título, conteúdo e etiquetas selecionadas pelo usuário
+    \item Encerra o fluxo alternativo e retorna para o fluxo básico no passo \ref{uc01:fluxo_base:carregar_anotacoes}.
+\end{enumerate}
+
+\subsubsection{Editar anotação arquivada} \label{uc01:fluxo_alternativo:editar_anotacao_arquivada}
+\begin{enumerate}
+    \item O sistema disponibiliza uma interface para edição da anotação
+    \item O sistema carrega título, conteúdo, etiquetas e estado de arquivamento da anotação a ser editada
+    \item O sistema carrega as etiquetas existentes
+    \item O sistema disponibiliza edição do título, conteúdo, etiquetas e estado de arquivamento da anotação
+    \item O usuário modifica título, conteúdo, etiquetas ou estado de arquivamento da anotação \label{uc01:fluxo_alternativo:editar_anotacao_arquivada:pode_escrever}
+    \item O usuário pode modificar o estado de arquivamento da anotação
+    \item O usuário pode selecionar uma das etiquetas disponíveis para atribuí-la à anotação
+    \item Caso o usuário cancele a operação de criação ele retornará para o fluxo alternativo \ref{uc01:fluxo_alternativo:ler_anotacao_arquivada}.
+    \item Caso o usuário selecione a opção de salvar a anotação ela deve obedecer às \hyperref[uc01:rn01_validacao_anotacao]{RN01} e \hyperref[uc01:rn02_flag_arquivar]{RN02}. Caso não obedeça, o caso vai para o fluxo excepcional \ref{uc01:fluxo_excepcional:edicao_arquivada_invalida}.
+    \item A anotação é salva com o título, conteúdo e etiquetas selecionadas pelo usuário
+    \item Encerra o fluxo alternativo e retorna para o fluxo básico no passo \ref{uc01:fluxo_base:carregar_anotacoes}.
 \end{enumerate}
 
 % Área de funcionalidade
 \subsection{Apagar anotações}
 % subfluxo
-\subsubsection{Apagar anotação}
+\subsubsection{Apagar anotação não arquivada} \label{uc01:fluxo_alternativo:apagar_anotacao_nao_arquivada}
 \begin{enumerate}
-    \item O usuário aciona que deseja deletar uma anotação em uma anotação existente
     \item O sistema questiona o usuário se ele realmente deseja realizar essa operação
     \item Se o usuário confirmar o desejo, a anotação é excluída
-    \item Se o usuário não confirmar a operação de apagar anotação, o sistema simplesmente retorna à tela principal
+    \item O fluxo se encerra e retorna ao fluxo básico no passo \ref{uc01:fluxo_base:carregar_anotacoes}
 \end{enumerate}
 
-% \section{Fluxos excepcionais}
+\subsubsection{Apagar anotação arquivada} \label{uc01:fluxo_alternativo:apagar_anotacao_arquivada}
+\begin{enumerate}
+    \item O sistema questiona o usuário se ele realmente deseja realizar essa operação
+    \item Se o usuário confirmar o desejo, a anotação é excluída
+    \item O fluxo se encerra e retorna ao fluxo alternativo \ref{uc01:fluxo_alternativo:ler_anotacao_arquivada}
+\end{enumerate}
 
-% \subsection{Editar anotação de forma inválida}
+\section{Fluxos excepcionais}
+
+\subsection{Tentativa de salvar anotação inválida na criação} \label{uc01:fluxo_excepcional:criacao_invalida}
+\begin{enumerate}
+    \item O usuário deve ser informado da regra de negócio violada
+    \item Caso retorna ao fluxo alternativo \ref{uc01:fluxo_alternativo:criar_anotacao} no passo \ref{uc01:fluxo_alternativo:criar_anotacao:pode_escrever}.
+\end{enumerate}
+
+\subsection{Tentativa de salvar anotação inválida na edição de anotação não arquivada} \label{uc01:fluxo_excepcional:edicao_nao_arquivada_invalida}
+\begin{enumerate}
+    \item O usuário deve ser informado da regra de negócio violada
+    \item Caso retorna ao fluxo alternativo \ref{uc01:fluxo_alternativo:editar_anotacao_nao_arquivada} no passo \ref{uc01:fluxo_alternativo:editar_anotacao_nao_arquivada:pode_escrever}.
+\end{enumerate}
+
+\subsection{Tentativa de salvar anotação inválida na edição de anotação arquivada} \label{uc01:fluxo_excepcional:edicao_arquivada_invalida}
+\begin{enumerate}
+    \item O usuário deve ser informado da regra de negócio violada
+    \item Caso retorna ao fluxo alternativo \ref{uc01:fluxo_alternativo:editar_anotacao_arquivada} no passo \ref{uc01:fluxo_alternativo:editar_anotacao_nao_arquivada:pode_escrever}.
+\end{enumerate}
 
 % \section{Subfluxos}
 % Nenhum especificado
@@ -860,16 +898,41 @@ Caso de uso responsável por criar, ler, editar, excluir e arquivar anotações.
 
 % \section{Condições prévias}
 
-% \section{Condições posteriores}
+\section{Condições posteriores}
+\begin{enumerate}
+    \item Após \ref{uc01:fluxo_alternativo:criar_anotacao} há a criação de anotações
+    \item Após \ref{uc01:fluxo_alternativo:editar_anotacao_arquivada} e \ref{uc01:fluxo_alternativo:editar_anotacao_nao_arquivada} há a modificação das anotações existentes
+    \item Após \ref{uc01:fluxo_alternativo:apagar_anotacao_arquivada} e \ref{uc01:fluxo_alternativo:apagar_anotacao_nao_arquivada} há o apagamento de anotações existentes
+\end{enumerate}
 
-% \section{Pontos de extensão}
+\section{Pontos de extensão}
+Os fluxos alternativos relativos à criação \ref{uc01:fluxo_alternativo:criar_anotacao} e a edição \ref{uc01:fluxo_alternativo:editar_anotacao_nao_arquivada} e \ref{uc01:fluxo_alternativo:editar_anotacao_arquivada} interagem com a leitura das etiquetas existentes e com a atribuição de etiquetas.
 
 % \section{Requisitos especiais}
 
 % \section{Informações adicionais}
 
 % \chapter{Lições Aprendidas}
-%[Liste as lições aprendidas na retrospectiva, com ênfase especial nas ações a serem tomadas para melhorar, por exemplo: o ambiente de desenvolvimento, o processo ou a colaboração da equipe.]
+\chapter{Lições Aprendidas}
+% [Liste as lições aprendidas na retrospectiva, com ênfase especial nas ações a serem tomadas para melhorar, por exemplo: o ambiente de desenvolvimento, o processo ou a colaboração da equipe.]
+A equipe iniciou o desenvolvimento através de uma abordagem ágil da Engenharia de Requisitos. A troca da perspectiva de ágil para tradicional ajudou os componentes a trabalharem mapeando os problemas identificados anteriormente em necessidades, organizar estas em requisitos funcionais e agrupar esses requisitos em casos de uso.
+
+No início da unidade 5 houve uma confusão sobre como se especificaria um caso de uso. Após conversas com o Professor Orientador, ficou evidente que não havia a necessidade de se seguir todos os pontos do \textit{template} apresentado como exemplo, o que simplificou a especificação.
+
+% \begin{itemize}
+% \section{Gerenciamento de atividades}
+% \item a
+% \item b
+% \item c
+% \section{Priorização de requisitos}
+% \item a
+% \item b
+% \item c
+% \section{Priorização de requisitos}
+% \item a
+% \item b
+% \item c
+% \end{itemize}
 
 % ----------------------------------------------------------
 % Capitulo com exemplos de comandos inseridos de arquivo externo
