@@ -148,7 +148,7 @@
 \titulo{NotoriousNote \\ \huge{Visão do Projeto} \\ \Large{Abordagem Tradicional}}
 \autor{Equipe EmptyCoffeeCups \\ Davi Antônio da Silva Santos \and Marcos Adriano \and Jonathan Jorge Barbosa Oliveira \and Wellington Jonathan}
 \local{Brasília, Distrito Federal, Brasil}
-\data{2021, 2021.05.11-preview}
+\data{2021, 2021.05.13}
 \instituicao{%
   Universidade de Brasília -- UnB
   \par
@@ -324,7 +324,8 @@
 \textbf{Data} & \textbf{Versão} & \textbf{Descrição} & \textbf{Autor} \\ \midrule \endhead
 10/05/2021 & 2021.05.10-preview & \begin{tabular}{@{}p{0.6\textwidth}@{}}Versão inicial deste documento de visão por abordagem tradicional produzida a partir da versão 2021.05.04-preview do documento de visão por abordagem ágil \\ Remoção da parte de abordagem ágil \\ Renomear parte Abordagem Tradicional para Atividades da Engenharia de Requisitos \\ Renomear capítulo Requisitos Tradicionais para Requisitos \\ Alterar descrição do RF19 \\ Corrigir tabela de planejamento de gerência para refletir a mudança de paradigma da Engenharia de Requisitos \\ Atualizar Android Studio de 4.1.3 para 4.2 \\ Atualizar Flutter de 2.0.4 para 2.0.6 \\ Atualizar Kotlin para 1.5.0 \\ Especificar a diferença entre o Gradle e o Gradle Plug-in \\ Atualizar extensão Kotlin da versão 1.4.31-release-Studio4.1 para 202-1.5.0-release-764-AS8194.7 \\ Atualizar plug-in Dart de 201.9335 para 202.8488 \\ Atualizar plug-in Flutter de 55.1.1 para 56.0.2 \end{tabular} & Davi Antônio da Silva Santos \\ \midrule
 11/05/2021 & 2021.05.11-preview & \begin{tabular}{@{}p{0.6\textwidth}@{}}Adicionar risco RS07 \\ Iniciar capítulo de lições aprendidas \\ Atualizar MVP \\ Modificar as descrições dos requisitos funcionais \\ Modificar nomes dos casos de uso para que estejam adequados ao padrão (verbo de ação) \\ Atualizar diagrama de casos de uso corrigindo nomes e relações de extensão \\ Alteração do Processo de Desenvolvimento e Mensuração, da Matriz de comunicação, dos Critérios de Replanejamento e da Organização do projeto para refletir a perspectiva tradicional \\ Especificação do UC01 \\ Acrescentar necessidades à tabela de requisitos funcionais \\ Adicionar informações relativas ao MVP, à implementação na etapa ágil e reformatar tabela de relação entre requisitos e casos de uso \end{tabular} & Equipe EmptyCoffeCups \\ \midrule
- & & & \\ \bottomrule
+12/05/2021 & 2021.05.12-preview & \begin{tabular}{@{}p{0.6\textwidth}@{}}Adicionar descrição dos atores \\ Atualização da lista de siglas \\ Atualizar especificação do UC01 com pontos de extensão \\ Iniciar especificação do UC02 e UC03 \\ Colocar capítulo de Lições Aprendidas em sua própria parte \\ Corrigira diagrama de casos de uso, retirando uma extensão não prevista nos requisitos \\ Adicionar detalhes sobre implementação parcial do caso de uso UC03 \\ Atualizar MVP refletindo os casos de uso incluídos total e parcialmente \end{tabular} & Equipe EmptyCoffeCups \\ \midrule
+13/05/2021 & 2021.05.13 & \begin{tabular}{@{}p{0.6\textwidth}@{}}Readequação dos casos de uso UC01, UC02 e UC03 aos requisitos funcionais \\ Revisão de erros e formatação do documento\end{tabular} & Equipe EmptyCoffeCups \\ \bottomrule
 \end{longtable}
 \cleardoublepage
 
@@ -352,6 +353,7 @@
   \item[BD] Banco de Dados
   \item[BLoC] \foreignlanguage{english}{\textit{Business Logic of Component}}
   \item[DB] \foreignlanguage{english}{\textit{Database}}
+  \item[FB] Fluxo Básico
   \item[IDE] \foreignlanguage{english}{\textit{Integrated Development Environment}}
   \item[SAFe] \foreignlanguage{english}{\textit{Scaled Agile Framework}}
   \item[SDK] \foreignlanguage{english}{\textit{Software Development Kit}}
@@ -476,13 +478,8 @@ O mínimo produto viável (MVP) deve possuir as seguintes características funci
 \begin{itemize}
     \item Criar, apagar, editar e visualizar de notas de texto com título e conteúdo;
     \item Criar, apagar, editar e visualizar etiquetas;
+    \item Criar, apagar, editar e visualizar tarefas;
     \item Atribuir etiquetas a uma anotação.
-    % \item Exportar notas e listas de tarefas em texto puro;
-    % \item Visualizar notas por etiquetas específicas.
-    % \item Criação de listas de tarefa com título e tarefas que podem ser registradas como terminadas ou não;
-    % \item Capacidade de salvar notas e listas de tarefa em nuvem (Cloud Firestore);
-    % \item Capacidade de exportar notas e listas de tarefas em JSON;
-    % \item Capacidade de ler notas e listas de tarefas salvas localmente em JSON.
 \end{itemize}
 
 \chapter{Visão Geral do Projeto}
@@ -721,7 +718,7 @@ RF25 & N1 & Desarquivar anotações & O sistema deve permitir desarquivar anota�
 \textbf{Id.} & \textbf{Requisitos} & \textbf{Nome} &\textbf{MVP/Ágil}\\ \midrule
 UC01 & \hyperref[RF01]{RF01} - Criar anotação, \hyperref[RF02]{RF02} - Visualizar anotação, \hyperref[RF03]{RF03} - Modificar anotação, \hyperref[RF04]{RF04} - Apagara anotação, \hyperref[RF24]{RF24} - Arquivar anotações, \hyperref[RF25]{RF25} - Desarquivar tarefa & Gerenciar anotações & Sim/Parcial \\ \midrule
 UC02 & \hyperref[RF05]{RF05} - Criar etiqueta, \hyperref[RF06]{RF06} - Visualizar etiqueta, \hyperref[RF07]{RF07} - Modificar etiqueta, \hyperref[RF08]{RF08} - Remover etiqueta, \hyperref[RF09]{RF09} - Atribuir etiqueta & Gerenciar etiquetas & Sim/Não \\ \midrule
-UC03 & \hyperref[RF12]{RF12} - Criar lista, \hyperref[RF13]{RF13} - Visualizar lista, \hyperref[RF14]{RF14} - Modificar lista, \hyperref[RF15]{RF15} - Apagar lista, \hyperref[RF16]{RF16} - Criar tarefa, \hyperref[RF17]{RF17} - Visualizar tarefa, \hyperref[RF18]{RF18} - Modificar tarefa, \hyperref[RF19]{RF19} - Apagar tarefa & Gerenciar tarefas & Sim/Não\\ \midrule
+UC03 & \hyperref[RF12]{RF12} - Criar lista, \hyperref[RF13]{RF13} - Visualizar lista, \hyperref[RF14]{RF14} - Modificar lista, \hyperref[RF15]{RF15} - Apagar lista, \hyperref[RF16]{RF16} - Criar tarefa, \hyperref[RF17]{RF17} - Visualizar tarefa, \hyperref[RF18]{RF18} - Modificar tarefa, \hyperref[RF19]{RF19} - Apagar tarefa & Gerenciar tarefas & Parcial/Não\\ \midrule
 UC04 & \hyperref[RF10]{RF10} - Backup em nuvem & Gerenciar backups & Não/Não\\ \midrule
 UC05 & \hyperref[RF11]{RF11} - Criar conta, \hyperref[RF23]{RF23} - Alterar Credenciais & Gerenciar conta & Não/Não\\ \midrule
 UC06 & \hyperref[RF20]{RF20} - Encaminhar alerta, \hyperref[RF21]{RF21} - Criar alerta, \hyperref[RF22]{RF22} - Cronometrar tarefa & Gerenciar notificações & Não/Não\\ \bottomrule
@@ -729,28 +726,99 @@ UC06 & \hyperref[RF20]{RF20} - Encaminhar alerta, \hyperref[RF21]{RF21} - Criar 
 
 \section{Atores}
 \IBGEtabfontsize
-\begin{longtable}{@{}lll@{}}
+\begin{longtable}{@{}llp{0.4\textwidth}l@{}}
 \caption{Atores e casos de uso relacionados}
 \label{tab:atores} \\
 \toprule
-\textbf{Id.} & \textbf{Atores} & \textbf{Caso de uso} \\ \midrule
-A01 & Usuário & \begin{tabular}{@{}l@{}}Gerenciar anotações \\ Gerenciar tarefas \\ Gerenciar etiquetas \\ Gerenciar notificações \\ Gerenciar conta \end{tabular} \\ \midrule
-A02 & Cloud Firestore & Gerenciar backups \\ \midrule
-A03 & Firebase Auth & Gerenciar conta \\ \bottomrule
+\textbf{Id.} & \textbf{Atores} & \textbf{Descrição} & \textbf{Caso de uso} \\ \midrule
+A01 & Usuário & Usuários são pessoas que queira utilizar o app para gerenciar suas anotações e tarefas  & \begin{tabular}{@{}l@{}}Gerenciar anotações \\ Gerenciar tarefas \\ Gerenciar etiquetas \\ Gerenciar notificações \\ Gerenciar conta \end{tabular} \\ \midrule
+A02 & Cloud Firestore & Armazena anotações e listas de tarefa na nuvem & Gerenciar backups \\ \midrule
+A03 & Firebase Auth & O Autentica usuários para uso do armazenamento em nuvem & Gerenciar conta \\ \bottomrule
 \end{longtable}
 
 \section{Diagrama de casos de uso}
 \begin{figure}[htb]
     \centering
-    \includegraphics[keepaspectratio=true,width=0.8\textwidth]{notoriousnote-casos-de-uso.pdf}
+    \includegraphics[keepaspectratio=true,width=0.7\textwidth]{notoriousnote-casos-de-uso.pdf}
     \caption{Diagrama de casos de uso do sistema}
     \label{fig:diagrama_casos_uso}
 \end{figure}
 
 \part{Especificação de casos de uso}
+% \chapter{UCXX - Nome}
+% \section{Descrição} 
+% Descrever caso de uso.
 
-\chapter{UC01 - Gerenciar Anotações}
+% \section{Atores}
+% \begin{itemize}
+%     \item[\textbf{Ator X}] Objetivos.
+% \end{itemize}
 
+% \section{Regras de negócio}
+% \IBGEtabfontsize
+% \begin{longtable}{@{}lp{0.25\textwidth}p{0.6\textwidth}@{}}
+% \caption{Regras de negócio}
+% \label{tab:ucxx:regras_de_negocio} \\
+% \toprule
+% \textbf{Id.} & \textbf{Nome} & \textbf{Descrição} \\ \midrule
+% RN01 & Nome & Descrição \phantomsection \label{ucxx:rn01_nome} \\ \midrule
+% RN02 & Nome & Descrição \phantomsection \label{ucxx:rn02_nome} \\ \bottomrule
+% \end{longtable}
+
+% \section{Fluxo básico de eventos (FB)}
+
+% \begin{enumerate}
+%     \item Passo 1
+%     \item Passo N
+% \end{enumerate}
+
+% \section{Fluxos alternativos}
+% \begin{enumerate}[label=\textbf{FA{\arabic*}},font=\normalsize]
+%     \item \textbf{\normalsize Nome do fluxo 1} \label{ucxx:fluxo_alternativo:nome_fluxo_1}
+%     \begin{enumerate}[label={\arabic*}.]
+%         \item Passo 1 do fluxo \label{ucxx:fluxo_alternativo:nome_fluxo_1:nome_passo1}
+%         \item Passo N do fluxo
+%     \end{enumerate}
+
+%     \item \textbf{\normalsize Nome do fluxo 2}
+%     \begin{enumerate}[label={\arabic*}.]
+%         \item Passo 1 do fluxo
+%         \item Passo N do fluxo
+%     \end{enumerate}
+% \end{enumerate}
+
+% \section{Fluxos Excepcionais}
+% \begin{enumerate}[label=\textbf{FE{\arabic*}},font=\normalsize]
+%     \item \textbf{\normalsize Nome do fluxo 1} \label{ucxx:fluxo_excepcional:nome_fluxo_1}
+%     \begin{enumerate}[label={\arabic*}.]
+%         \item Passo 1 do fluxo \label{ucxx:fluxo_excepcional:nome_fluxo_1:nome_passo1}
+%         \item Passo N do fluxo
+%     \end{enumerate}
+
+%     \item \textbf{\normalsize Nome do fluxo 2}
+%     \begin{enumerate}[label={\arabic*}.]
+%         \item Passo 1 do fluxo
+%         \item Passo N do fluxo
+%     \end{enumerate}
+% \end{enumerate}
+
+% \section{Subfluxos}
+
+% \section{Cenários Chave}
+
+% \section{Condições prévias}
+
+% \section{Condições posteriores}
+
+% \section{Pontos de extensão}
+
+% \chapter{Lições Aprendidas}
+
+% \section{Requisitos especiais}
+
+% \section{Informações adicionais}
+
+\chapter{UC01 - Gerenciar anotações}
 \section{Descrição} 
 Caso de uso responsável por criar, ler, editar, excluir e arquivar anotações. O usuário interage com o sistema, que disponibiliza as possibilidades de gerência de anotações mencionadas previamente, e uma interface a edição e criação da anotação. Há a possibilidade das anotações serem arquivadas e visualizadas em uma interface diferente para melhor organização das anotações não prioritárias para o usuário.
 
@@ -762,141 +830,142 @@ Caso de uso responsável por criar, ler, editar, excluir e arquivar anotações.
 \section{Regras de negócio}
 \IBGEtabfontsize
 \begin{longtable}{@{}lp{0.25\textwidth}p{0.6\textwidth}@{}}
-\caption{Regras de negócio}
+\caption{Regras de negócio do caso UC01}
 \label{tab:regras_de_negocio} \\
 \toprule
 \textbf{Id.} & \textbf{Nome} & \textbf{Descrição} \\ \midrule
-RN01 & Validação de anotação & A anotação será considerada válida se houver conteúdo nos campos de título ou conteúdo. Isto é, anotações com um dos dois campos nulo ou vazio são válidas, e anotações com ambos os campos vazios são inválidas \phantomsection \label{uc01:rn01_validacao_anotacao} \\ \midrule
-RN02 & Anotações arquivadas & Uma anotação é considerada arquivada se o conteúdo no campo numérico de arquivamento for configurado diferente de zero \phantomsection \label{uc01:rn02_flag_arquivar} \\ \bottomrule
+\label{uc01:rn01_validacao_anotacao} UC01-RN01 \phantomsection  & Validação de anotação & A anotação será considerada válida se houver conteúdo nos campos de título ou conteúdo. Isto é, anotações com um dos dois campos nulo ou vazio são válidas, e anotações com ambos os campos vazios são inválidas \\ \midrule
+\label{uc01:rn02_flag_arquivar} UC01-RN02\phantomsection  & Anotações arquivadas & Uma anotação é considerada arquivada se o conteúdo no campo numérico de arquivamento for configurado diferente de zero \\ \bottomrule
 \end{longtable}
 
-\section{Fluxo básico de eventos}
+\section{Fluxo básico de eventos (FB)}
 
 \begin{enumerate}
     \item O usuário inicia aplicação
     \item O sistema carrega as anotações existentes \label{uc01:fluxo_base:carregar_anotacoes}
-    \item Se houver anotações disponíveis será iniciado o fluxo alternativo de visualizar anotação (\ref{uc01:fluxo_alternativo:ler_anotacao_nao_arquivada})
-    \item Se o usuário desejar visualizar as anotações arquivadas será iniciado o fluxo alternativo de ler anotação arquivada (\ref{uc01:fluxo_alternativo:ler_anotacao_arquivada})
-    \item Se o usuário desejar criar uma anotação será iniciado o fluxo alternativo de criar anotação (\ref{uc01:fluxo_alternativo:criar_anotacao}).
-    \item Se o usuário desejar apagar uma anotação será iniciado o fluxo alternativo de apagar anotação (\ref{uc01:fluxo_alternativo:apagar_anotacao_nao_arquivada})
-    \item Se o usuário desejar editar uma anotação será iniciado o fluxo alternativo de editar anotação (\ref{uc01:fluxo_alternativo:editar_anotacao_nao_arquivada})
-    \item O fluxo básico se encerra.
-    
+    \item Se houver anotações disponíveis será iniciado o fluxo alternativo de visualizar anotação \ref{uc01:fluxo_alternativo:ler_anotacao_nao_arquivada}
+    \item Se o usuário desejar visualizar as anotações arquivadas será iniciado o fluxo alternativo de ler anotação arquivada \ref{uc01:fluxo_alternativo:ler_anotacao_arquivada}
+    \item Se o usuário desejar criar uma anotação será iniciado o fluxo alternativo de criar anotação \ref{uc01:fluxo_alternativo:criar_anotacao}
+    \item Se o usuário desejar apagar uma anotação será iniciado o fluxo alternativo de apagar anotação \ref{uc01:fluxo_alternativo:apagar_anotacao_nao_arquivada}
+    \item Se o usuário desejar editar uma anotação será iniciado o fluxo alternativo de editar anotação \ref{uc01:fluxo_alternativo:editar_anotacao_nao_arquivada}
+    \item Se o usuário desejar realizar outra ação, o caso de uso continua a partir do passo \ref{uc01:fluxo_base:carregar_anotacoes}
+    \item O fluxo básico se encerra
 \end{enumerate}
 
 \section{Fluxos alternativos}
+\begin{enumerate}[label=\textbf{UC01-FA{\arabic*}},font=\normalsize]
+    % Área de funcionalidade
+    \subsection{Visualização de anotações}
+    
+    % fluxo alternativo
+    \item \textbf{\normalsize Visualizar anotações} \label{uc01:fluxo_alternativo:ler_anotacao_nao_arquivada}
+    \begin{enumerate}[label={\arabic*}.]
+        \item Todas as anotações não arquivadas são disponibilizadas para o usuário.
+        \item O sistema disponibiliza título, o conteúdo e as etiquetas de cada uma das anotações.
+        \item Encerra o fluxo alternativo e retorna para o fluxo básico no passo \ref{uc01:fluxo_base:carregar_anotacoes}
+    \end{enumerate}
+    
+    % fluxo alternativo
+    \item \textbf{\normalsize Visualizar anotações arquivadas} \label{uc01:fluxo_alternativo:ler_anotacao_arquivada}
+    \begin{enumerate}[label={\arabic*}.]
+        \item Todas as anotações arquivadas \textbf{\hyperref[uc01:rn02_flag_arquivar]{UC01-RN02}} são disponibilizadas para o usuário.
+        \item Caso o usuário deseje editar a anotação será seguido o fluxo de edição \ref{uc01:fluxo_alternativo:editar_anotacao_arquivada}
+        \item Caso o usuário deseje apagar a anotação será seguido o fluxo alternativo de apagar anotação \ref{uc01:fluxo_alternativo:apagar_anotacao_arquivada}
+        \item Caso o usuário deseje visualizar as anotações não arquivadas o fluxo alternativo encerra e retorna para o fluxo básico no passo \ref{uc01:fluxo_base:carregar_anotacoes}
+    \end{enumerate}
+    
+    % Área de funcionalidade
+    \subsection{Criação de anotações}
+    % subfluxo
+    \item \textbf{\normalsize Criar anotação} \label{uc01:fluxo_alternativo:criar_anotacao}
+    \begin{enumerate}[label={\arabic*}.]
+        \item O sistema disponibiliza uma interface para criação da anotação
+        \item O sistema carrega as etiquetas existentes
+        \item O sistema disponibiliza escrita do título, conteúdo, etiqueta e estado de arquivamento da anotação
+        \item O usuário define título, conteúdo, etiqueta ou estado de arquivamento da anotação \label{uc01:fluxo_alternativo:criar_anotacao:pode_escrever}
+        \item O usuário pode selecionar uma das etiquetas disponíveis para atribuí-la à anotação
+        \item Caso o usuário cancele a operação de criação ele retornará para o fluxo básico no passo \ref{uc01:fluxo_base:carregar_anotacoes}.
+        \item Caso o usuário selecione a opção de salvar a anotação ela deve obedecer às \textbf{\hyperref[uc01:rn01_validacao_anotacao]{UC01-RN01}} e \textbf{\hyperref[uc01:rn02_flag_arquivar]{UC01-RN02}}. Caso não obedeça, o caso vai para o fluxo excepcional \ref{uc01:fluxo_excepcional:criacao_invalida}.
+        \item A anotação é criada com o título, conteúdo e etiquetas selecionadas pelo usuário
+        \item Encerra o fluxo alternativo e retorna para o fluxo básico no passo \ref{uc01:fluxo_base:carregar_anotacoes}
+    \end{enumerate}
+    
+    % Área de funcionalidade
+    \subsection{Edição de anotações}
+    % subfluxo
+    \item \textbf{\normalsize Editar anotação não arquivada} \label{uc01:fluxo_alternativo:editar_anotacao_nao_arquivada}
+    \begin{enumerate}[label={\arabic*}.]
+        \item O sistema disponibiliza uma interface para edição da anotação
+        \item O sistema carrega título, conteúdo, etiquetas e estado de arquivamento da anotação a ser editada
+        \item O sistema carrega as etiquetas existentes
+        \item O sistema disponibiliza edição do título, conteúdo, etiquetas e estado de arquivamento da anotação
+        \item O usuário modifica título, conteúdo, etiquetas ou estado de arquivamento da anotação \label{uc01:fluxo_alternativo:editar_anotacao_nao_arquivada:pode_escrever}
+        \item O usuário pode modificar o estado de arquivamento da anotação
+        \item O usuário pode selecionar uma das etiquetas disponíveis para atribuí-la à anotação
+        \item Caso o usuário cancele a operação de criação ele retornará para o fluxo básico no passo \ref{uc01:fluxo_base:carregar_anotacoes}.
+        \item Caso o usuário selecione a opção de salvar a anotação ela deve obedecer às \textbf{\hyperref[uc01:rn01_validacao_anotacao]{UC01-RN01}} e \textbf{\hyperref[uc01:rn02_flag_arquivar]{UC01-RN02}}. Caso não obedeça, o caso vai para o fluxo excepcional \ref{uc01:fluxo_excepcional:edicao_nao_arquivada_invalida}.
+        \item A anotação é salva com o título, conteúdo e etiquetas selecionadas pelo usuário
+        \item Encerra o fluxo alternativo e retorna para o fluxo básico no passo \ref{uc01:fluxo_base:carregar_anotacoes}
+    \end{enumerate}
 
-% Área de funcionalidade
-\subsection{Visualização de anotações}
-% subfluxo
-\subsubsection{Visualizar anotações} \label{uc01:fluxo_alternativo:ler_anotacao_nao_arquivada}
-\begin{enumerate}   
-    \item Todas as anotações não arquivadas são disponibilizadas para o usuário.
-    \item O sistema disponibiliza título, o conteúdo e as etiquetas de cada uma das anotações.
-    \item Encerra o fluxo alternativo e retorna para o fluxo básico no passo \ref{uc01:fluxo_base:carregar_anotacoes}.
-\end{enumerate}
+    \item \textbf{\normalsize Editar anotação arquivada} \label{uc01:fluxo_alternativo:editar_anotacao_arquivada}
+    \begin{enumerate}[label={\arabic*}.]
+        \item O sistema disponibiliza uma interface para edição da anotação
+        \item O sistema carrega título, conteúdo, etiquetas e estado de arquivamento da anotação a ser editada
+        \item O sistema carrega as etiquetas existentes
+        \item O sistema disponibiliza edição do título, conteúdo, etiquetas e estado de arquivamento da anotação
+        \item O usuário modifica título, conteúdo, etiquetas ou estado de arquivamento da anotação \label{uc01:fluxo_alternativo:editar_anotacao_arquivada:pode_escrever}
+        \item O usuário pode modificar o estado de arquivamento da anotação
+        \item O usuário pode selecionar uma das etiquetas disponíveis para atribuí-la à anotação
+        \item Caso o usuário cancele a operação de criação ele retornará para o fluxo alternativo \ref{uc01:fluxo_alternativo:ler_anotacao_arquivada}.
+        \item Caso o usuário selecione a opção de salvar a anotação ela deve obedecer às \textbf{\hyperref[uc01:rn01_validacao_anotacao]{UC01-RN01}} e \textbf{\hyperref[uc01:rn02_flag_arquivar]{UC01-RN02}}. Caso não obedeça, o caso vai para o fluxo excepcional \ref{uc01:fluxo_excepcional:edicao_arquivada_invalida}.
+        \item A anotação é salva com o título, conteúdo e etiquetas selecionadas pelo usuário
+        \item Encerra o fluxo alternativo e retorna para o fluxo básico no passo \ref{uc01:fluxo_base:carregar_anotacoes}
+    \end{enumerate}
+    
+    % Área de funcionalidade
+    \subsection{Apagar anotações}
+    % subfluxo
+    \item \textbf{\normalsize Apagar anotação não arquivada} \label{uc01:fluxo_alternativo:apagar_anotacao_nao_arquivada}
+    \begin{enumerate}[label={\arabic*}.]
+        \item O usuário seleciona a anotação que deseja apagar.
+        \item A anotação é excluída
+        \item O fluxo se encerra e retorna ao fluxo básico no passo \ref{uc01:fluxo_base:carregar_anotacoes}
+    \end{enumerate}
 
-\subsubsection{Visualizar anotações arquivadas} \label{uc01:fluxo_alternativo:ler_anotacao_arquivada}
-\begin{enumerate}
-    \item Todas as anotações arquivadas (\hyperref[uc01:rn02_flag_arquivar]{RN02}) são disponibilizadas para o usuário.
-    \item Caso o usuário deseje editar a anotação será seguido o fluxo de edição \ref{uc01:fluxo_alternativo:editar_anotacao_arquivada}
-    \item Caso o usuário deseje apagar a anotação será seguido o fluxo alternativo de apagar anotação \ref{uc01:fluxo_alternativo:apagar_anotacao_arquivada}
-    \item Caso o usuário deseje visualizar as anotações não arquivadas o fluxo alternativo encerra e retorna para o fluxo básico no passo \ref{uc01:fluxo_base:carregar_anotacoes}.
-\end{enumerate}
-
-% Área de funcionalidade
-\subsection{Criação de anotações}
-% subfluxo
-\subsubsection{Criar anotação} \label{uc01:fluxo_alternativo:criar_anotacao}
-\begin{enumerate}
-    \item O sistema disponibiliza uma interface para criação da anotação
-    \item O sistema carrega as etiquetas existentes
-    \item O sistema disponibiliza edição do título, conteúdo, etiquetas e estado de arquivamento da anotação
-    \item O usuário modifica título, conteúdo, etiquetas ou estado de arquivamento da anotação \label{uc01:fluxo_alternativo:criar_anotacao:pode_escrever}
-    \item O usuário pode modificar o estado de arquivamento da anotação
-    \item O usuário pode selecionar uma das etiquetas disponíveis para atribuí-la à anotação
-    \item Caso o usuário cancele a operação de criação ele retornará para o fluxo básico no passo \ref{uc01:fluxo_base:carregar_anotacoes}.
-    \item Caso o usuário selecione a opção de salvar a anotação ela deve obedecer às \hyperref[uc01:rn01_validacao_anotacao]{RN01} e \hyperref[uc01:rn02_flag_arquivar]{RN02}. Caso não obedeça, o caso vai para o fluxo excepcional \ref{uc01:fluxo_excepcional:criacao_invalida}.
-    \item A anotação é criada com o título, conteúdo e etiquetas selecionadas pelo usuário
-    \item Encerra o fluxo alternativo e retorna para o fluxo básico no passo \ref{uc01:fluxo_base:carregar_anotacoes}.
-\end{enumerate}
-
-% Área de funcionalidade
-\subsection{Edição de anotações}
-% subfluxo
-\subsubsection{Editar anotação não arquivada} \label{uc01:fluxo_alternativo:editar_anotacao_nao_arquivada}
-\begin{enumerate}
-    \item O sistema disponibiliza uma interface para edição da anotação
-    \item O sistema carrega título, conteúdo, etiquetas e estado de arquivamento da anotação a ser editada
-    \item O sistema carrega as etiquetas existentes
-    \item O sistema disponibiliza edição do título, conteúdo, etiquetas e estado de arquivamento da anotação
-    \item O usuário modifica título, conteúdo, etiquetas ou estado de arquivamento da anotação \label{uc01:fluxo_alternativo:editar_anotacao_nao_arquivada:pode_escrever}
-    \item O usuário pode modificar o estado de arquivamento da anotação
-    \item O usuário pode selecionar uma das etiquetas disponíveis para atribuí-la à anotação
-    \item Caso o usuário cancele a operação de criação ele retornará para o fluxo básico no passo \ref{uc01:fluxo_base:carregar_anotacoes}.
-    \item Caso o usuário selecione a opção de salvar a anotação ela deve obedecer às \hyperref[uc01:rn01_validacao_anotacao]{RN01} e \hyperref[uc01:rn02_flag_arquivar]{RN02}. Caso não obedeça, o caso vai para o fluxo excepcional \ref{uc01:fluxo_excepcional:edicao_nao_arquivada_invalida}.
-    \item A anotação é salva com o título, conteúdo e etiquetas selecionadas pelo usuário
-    \item Encerra o fluxo alternativo e retorna para o fluxo básico no passo \ref{uc01:fluxo_base:carregar_anotacoes}.
-\end{enumerate}
-
-\subsubsection{Editar anotação arquivada} \label{uc01:fluxo_alternativo:editar_anotacao_arquivada}
-\begin{enumerate}
-    \item O sistema disponibiliza uma interface para edição da anotação
-    \item O sistema carrega título, conteúdo, etiquetas e estado de arquivamento da anotação a ser editada
-    \item O sistema carrega as etiquetas existentes
-    \item O sistema disponibiliza edição do título, conteúdo, etiquetas e estado de arquivamento da anotação
-    \item O usuário modifica título, conteúdo, etiquetas ou estado de arquivamento da anotação \label{uc01:fluxo_alternativo:editar_anotacao_arquivada:pode_escrever}
-    \item O usuário pode modificar o estado de arquivamento da anotação
-    \item O usuário pode selecionar uma das etiquetas disponíveis para atribuí-la à anotação
-    \item Caso o usuário cancele a operação de criação ele retornará para o fluxo alternativo \ref{uc01:fluxo_alternativo:ler_anotacao_arquivada}.
-    \item Caso o usuário selecione a opção de salvar a anotação ela deve obedecer às \hyperref[uc01:rn01_validacao_anotacao]{RN01} e \hyperref[uc01:rn02_flag_arquivar]{RN02}. Caso não obedeça, o caso vai para o fluxo excepcional \ref{uc01:fluxo_excepcional:edicao_arquivada_invalida}.
-    \item A anotação é salva com o título, conteúdo e etiquetas selecionadas pelo usuário
-    \item Encerra o fluxo alternativo e retorna para o fluxo básico no passo \ref{uc01:fluxo_base:carregar_anotacoes}.
-\end{enumerate}
-
-% Área de funcionalidade
-\subsection{Apagar anotações}
-% subfluxo
-\subsubsection{Apagar anotação não arquivada} \label{uc01:fluxo_alternativo:apagar_anotacao_nao_arquivada}
-\begin{enumerate}
-    \item O sistema questiona o usuário se ele realmente deseja realizar essa operação
-    \item Se o usuário confirmar o desejo, a anotação é excluída
-    \item O fluxo se encerra e retorna ao fluxo básico no passo \ref{uc01:fluxo_base:carregar_anotacoes}
-\end{enumerate}
-
-\subsubsection{Apagar anotação arquivada} \label{uc01:fluxo_alternativo:apagar_anotacao_arquivada}
-\begin{enumerate}
-    \item O sistema questiona o usuário se ele realmente deseja realizar essa operação
-    \item Se o usuário confirmar o desejo, a anotação é excluída
-    \item O fluxo se encerra e retorna ao fluxo alternativo \ref{uc01:fluxo_alternativo:ler_anotacao_arquivada}
+    \item \textbf{\normalsize Apagar anotação arquivada} \label{uc01:fluxo_alternativo:apagar_anotacao_arquivada}
+    \begin{enumerate}[label={\arabic*}.]
+        \item A anotação é excluída
+        \item O fluxo se encerra e retorna ao fluxo alternativo \ref{uc01:fluxo_alternativo:ler_anotacao_arquivada}
+    \end{enumerate}
 \end{enumerate}
 
 \section{Fluxos excepcionais}
+\begin{enumerate}[label=\textbf{UC01-FE{\arabic*}},font=\normalsize]
+    \item \textbf{\normalsize Tentativa de salvar anotação inválida na criação} \label{uc01:fluxo_excepcional:criacao_invalida}
+    \begin{enumerate}[label={\arabic*}.]
+        \item O usuário deve ser informado da regra de negócio violada
+        \item Caso retorna ao fluxo alternativo \ref{uc01:fluxo_alternativo:criar_anotacao} no passo \ref{uc01:fluxo_alternativo:criar_anotacao:pode_escrever}
+    \end{enumerate}
+    
+    \item \textbf{\normalsize Tentativa de salvar anotação inválida na edição de anotação não arquivada} \label{uc01:fluxo_excepcional:edicao_nao_arquivada_invalida}
+    \begin{enumerate}[label={\arabic*}.]
+        \item O usuário deve ser informado da regra de negócio violada
+        \item Caso retorna ao fluxo alternativo \ref{uc01:fluxo_alternativo:editar_anotacao_nao_arquivada} no passo \ref{uc01:fluxo_alternativo:editar_anotacao_nao_arquivada:pode_escrever}
+    \end{enumerate}
 
-\subsection{Tentativa de salvar anotação inválida na criação} \label{uc01:fluxo_excepcional:criacao_invalida}
-\begin{enumerate}
-    \item O usuário deve ser informado da regra de negócio violada
-    \item Caso retorna ao fluxo alternativo \ref{uc01:fluxo_alternativo:criar_anotacao} no passo \ref{uc01:fluxo_alternativo:criar_anotacao:pode_escrever}.
+    \item \textbf{\normalsize Tentativa de salvar anotação inválida na edição de anotação arquivada} \label{uc01:fluxo_excepcional:edicao_arquivada_invalida}
+    \begin{enumerate}[label={\arabic*}.]
+        \item O usuário deve ser informado da regra de negócio violada
+        \item Caso retorna ao fluxo alternativo \ref{uc01:fluxo_alternativo:editar_anotacao_arquivada} no passo \ref{uc01:fluxo_alternativo:editar_anotacao_nao_arquivada:pode_escrever}
+    \end{enumerate}
 \end{enumerate}
 
-\subsection{Tentativa de salvar anotação inválida na edição de anotação não arquivada} \label{uc01:fluxo_excepcional:edicao_nao_arquivada_invalida}
-\begin{enumerate}
-    \item O usuário deve ser informado da regra de negócio violada
-    \item Caso retorna ao fluxo alternativo \ref{uc01:fluxo_alternativo:editar_anotacao_nao_arquivada} no passo \ref{uc01:fluxo_alternativo:editar_anotacao_nao_arquivada:pode_escrever}.
-\end{enumerate}
-
-\subsection{Tentativa de salvar anotação inválida na edição de anotação arquivada} \label{uc01:fluxo_excepcional:edicao_arquivada_invalida}
-\begin{enumerate}
-    \item O usuário deve ser informado da regra de negócio violada
-    \item Caso retorna ao fluxo alternativo \ref{uc01:fluxo_alternativo:editar_anotacao_arquivada} no passo \ref{uc01:fluxo_alternativo:editar_anotacao_nao_arquivada:pode_escrever}.
-\end{enumerate}
-
-% \section{Subfluxos}
-% Nenhum especificado
-
-% \section{Cenários Chave}
-
-% \section{Condições prévias}
+\section{Condições prévias}
+    \begin{enumerate}
+        \item Para os fluxos alternativos \ref{uc01:fluxo_alternativo:editar_anotacao_arquivada} e \ref{uc01:fluxo_alternativo:editar_anotacao_nao_arquivada} deve existir uma anotação
+        \item Para os fluxos alternativos \ref{uc01:fluxo_alternativo:apagar_anotacao_arquivada} e \ref{uc01:fluxo_alternativo:apagar_anotacao_nao_arquivada} deve existir uma anotação
+    \end{enumerate}
 
 \section{Condições posteriores}
 \begin{enumerate}
@@ -906,33 +975,358 @@ RN02 & Anotações arquivadas & Uma anotação é considerada arquivada se o con
 \end{enumerate}
 
 \section{Pontos de extensão}
-Os fluxos alternativos relativos à criação \ref{uc01:fluxo_alternativo:criar_anotacao} e a edição \ref{uc01:fluxo_alternativo:editar_anotacao_nao_arquivada} e \ref{uc01:fluxo_alternativo:editar_anotacao_arquivada} interagem com a leitura das etiquetas existentes e com a atribuição de etiquetas.
+% Os fluxos alternativos relativos à criação \ref{uc01:fluxo_alternativo:criar_anotacao} e a edição \ref{uc01:fluxo_alternativo:editar_anotacao_nao_arquivada} e \ref{uc01:fluxo_alternativo:editar_anotacao_arquivada} interagem com a leitura das etiquetas existentes e com a atribuição de etiquetas
 
-% \section{Requisitos especiais}
+\begin{enumerate}[label=\textbf{UC01-PE{\arabic*}},font=\normalsize]
+    \item \textbf{\normalsize Leitura de etiqueta atribuída} \label{uc01:ponto_extensao:ler_etiqueta}
+    \begin{itemize}
+        \item Nos fluxos alternativos de leitura da anotação \ref{uc01:fluxo_alternativo:ler_anotacao_arquivada} e \ref{uc01:fluxo_alternativo:ler_anotacao_nao_arquivada} há uma comunicação com o subfluxo \ref{uc02:subfluxo:ler_etiquetas_atribuidas}, já que é necessário verificar se há uma etiqueta atribuída
+        \item Nos fluxos alternativos de edição de anotação \ref{uc01:fluxo_alternativo:editar_anotacao_nao_arquivada} e \ref{uc01:fluxo_alternativo:editar_anotacao_arquivada} há uma comunicação com o subfluxo \ref{uc02:subfluxo:ler_etiquetas_atribuidas}, já que é necessário verificar se há uma etiqueta atribuída e recuperá-la caso exista
+    \end{itemize}
+    
+    \item \textbf{\normalsize Atribuição de etiqueta na criação} \label{uc01:ponto_extensao:atribuir_criar}
+    \begin{itemize}
+        \item No fluxo alternativo de criação de anotação \ref{uc01:fluxo_alternativo:criar_anotacao} há uma comunicação com o subfluxo \ref{uc02:subfluxo:atribuir_etiqueta}, já que ao criar a anotação é possível ao usuário atribuir uma etiqueta
+    \end{itemize}
 
-% \section{Informações adicionais}
+    \item \textbf{\normalsize Atribuição de etiqueta na edição} \label{uc01:ponto_extensao:atribuir_editar}
+    \begin{itemize}
+        \item Nos fluxos alternativos de edição de anotação \ref{uc01:fluxo_alternativo:editar_anotacao_nao_arquivada} e \ref{uc01:fluxo_alternativo:editar_anotacao_arquivada} há uma comunicação com o subfluxo \ref{uc02:subfluxo:atribuir_etiqueta}, já que ao se editar a anotação é possível ao usuário atribuir uma etiqueta ou modificar a relação de atribuição
+    \end{itemize}
+    
+    \item \textbf{\normalsize Alteração de atribuição de etiquetas ao apagar anotação}
+    \label{uc01:ponto_extensao:alterar_atribuicao}
+    \begin{itemize}
+        \item Nos fluxos alternativos que apagam anotações \ref{uc01:fluxo_alternativo:apagar_anotacao_arquivada} e \ref{uc01:fluxo_alternativo:apagar_anotacao_nao_arquivada} há uma comunicação com o subfluxo \ref{uc02:subfluxo:atribuir_etiqueta}, pois é necessário reavaliar as relações entre anotações e etiquetas
+    \end{itemize}
+\end{enumerate}
 
-% \chapter{Lições Aprendidas}
+%
+% Caso de uso UC02 - Gerenciar etiquetas
+%
+\chapter{UC02 - Gerenciar etiquetas}
+\section{Descrição} 
+%Descrever caso de uso.
+Caso de uso responsável por criar, ler, editar, excluir etiquetas. O usuário interage com o sistema, que disponibiliza as possibilidades de gerência de etiquetas mencionadas previamente e uma interface a edição e criação da etiquetas 
+\section{Atores}
+\begin{itemize}
+    \item[\textbf{Usuário}] Interessado em organizar as anotações por meio de etiquetas
+\end{itemize}
+
+\section{Regras de negócio}
+\IBGEtabfontsize
+\begin{longtable}{@{}lp{0.25\textwidth}p{0.6\textwidth}@{}}
+\caption{Regras de negócio do caso UC02}
+\label{tab:uc02:regras_de_negocio} \\
+\toprule
+\textbf{Id.} & \textbf{Nome} & \textbf{Descrição} \\ \midrule
+\label{uc02:rn01_validar} UC02-RN01\phantomsection & Validar etiqueta & A etiqueta será considerada válida se houver conteúdo no campo nome. Isto é, etiqueta campo nome nulo ou vazio não  são permitidas \\ \bottomrule
+
+\end{longtable}
+
+\section{Fluxo básico de eventos (FB)}
+
+\begin{enumerate}
+    \item O usuário inicia a aplicação
+    \item O sistema carrega as etiquetas existentes \label{uc02:fluxo_base:inicio_fluxo}
+    \item Se houver etiquetas será iniciado o fluxo alternativo de visualizar etiquetas \ref{uc02:fluxo_alternativo:visualizar_etiquetas}
+    \item Caso o usuário queira criar uma etiqueta o fluxo alternativo de criar etiqueta será iniciado \ref{uc02:fluxo_alternativo:criar_etiqueta} \label{uc02:fluxo_base:inicio_opcoes}
+     
+    \item Caso o usuário queira editar uma etiqueta existente o fluxo alternativo de editar etiqueta será iniciado \ref{uc02:fluxo_alternativo:editar_etiqueta}
+   
+    \item Caso o usuário queira apagar uma etiqueta existente o fluxo alternativo de apagar etiqueta será iniciado \ref{uc02:fluxo_alternativo:apagar_etiqueta}
+    \item Se o usuário desejar realizar outra ação, o caso de uso continua a partir do passo \ref{uc02:fluxo_base:inicio_fluxo}
+    \item Fim do fluxo básico
+\end{enumerate}
+
+\section{Fluxos alternativos}
+
+\begin{enumerate}[label=\textbf{UC02-FA{\arabic*}},font=\normalsize]
+      
+    \subsection{Visualização de etiquetas}
+     \item \textbf{\normalsize Visualizar etiquetas}
+    \label{uc02:fluxo_alternativo:visualizar_etiquetas}
+    \begin{enumerate}[label={\arabic*}.]
+        \item O sistema disponibiliza uma interface com todas as etiquetas disponíveis
+        \item Retorna-se ao fluxo básico no passo \ref{uc02:fluxo_base:inicio_opcoes}
+    \end{enumerate}
+    
+    \subsection{Criação de etiquetas}
+    \item \textbf{\normalsize Criar etiqueta} \label{uc02:fluxo_alternativo:criar_etiqueta}
+    \begin{enumerate}[label={\arabic*}.]
+        \item O sistema disponibiliza interface para criação da etiqueta \label{uc02:fluxo_alternativo:criar_etiqueta:pode_escrever}
+        \item O sistema possibilita que o usuário crie um nome para a etiqueta
+        \item Caso o usuário cancele a operação, retorna-se ao fluxo básico para o passo \ref{uc02:fluxo_base:inicio_opcoes}
+        \item O usuário seleciona que quer salvar a etiqueta
+        \item Se a etiqueta não obedecer à regra de negócio \textbf{\hyperref[uc02:rn01_validar]{UC02-RN01}} o fluxo será desviado para o fluxo excepcional \ref{uc02:fluxo_excepcional:criacao_invalida}
+        \item A etiqueta é criada
+        \item Retorna-se ao fluxo básico no passo \ref{uc02:fluxo_base:inicio_opcoes}
+    \end{enumerate}
+
+    \subsection{Edição de etiquetas}
+    \item \textbf{\normalsize Editar etiqueta} \label{uc02:fluxo_alternativo:editar_etiqueta}
+    \begin{enumerate}[label={\arabic*}.]
+        \item O sistema disponibiliza interface para edição da etiqueta \label{uc02:fluxo_alternativo:editar_etiqueta:pode_escrever}
+        \item O sistema possibilita que o usuário altere o nome da etiqueta
+        \item Caso o usuário cancele a operação, retorna-se ao fluxo básico para \ref{uc02:fluxo_base:inicio_opcoes}
+        \item O usuário seleciona que quer salvar a etiqueta
+        \item Se a etiqueta não obedecer à \textbf{\hyperref[uc02:rn01_validar]{UC02-RN01}} o fluxo será desviado para o fluxo excepcional \ref{uc02:fluxo_excepcional:edicao_invalida}
+        \item A etiqueta é modificada
+        \item Retorna-se ao fluxo básico no passo \ref{uc02:fluxo_base:inicio_opcoes}
+    \end{enumerate}
+    \subsection{Apagar etiquetas}
+       \item \textbf{\normalsize Apagar etiqueta} \label{uc02:fluxo_alternativo:apagar_etiqueta}
+    \begin{enumerate}[label={\arabic*}.]
+        \item O usuário indica que quer apagar a etiqueta
+        \item A etiqueta é excluída
+        \item Retorna-se ao fluxo básico no passo \ref{uc02:fluxo_base:inicio_opcoes}
+    \end{enumerate}
+\end{enumerate}
+
+\section{Fluxos Excepcionais}
+\begin{enumerate}[label=\textbf{UC02-FE{\arabic*}},font=\normalsize]
+    \item \textbf{\normalsize Tentativa de salvar etiqueta inválida na criação} \label{uc02:fluxo_excepcional:criacao_invalida}
+    \begin{enumerate}[label={\arabic*}.]
+       \item O usuário deve ser informado da regra de negócio violada
+       \item Caso retorna ao fluxo alternativo \ref{uc02:fluxo_alternativo:criar_etiqueta} no passo \ref{uc02:fluxo_alternativo:criar_etiqueta:pode_escrever}
+    \end{enumerate}
+
+     \item \textbf{\normalsize Tentativa de salvar etiqueta inválida na edição} \label{uc02:fluxo_excepcional:edicao_invalida}
+    \begin{enumerate}[label={\arabic*}.]
+       \item O usuário deve ser informado da regra de negócio violada
+        \item Caso retorna ao fluxo alternativo \ref{uc02:fluxo_alternativo:editar_etiqueta} no passo \ref{uc02:fluxo_alternativo:editar_etiqueta:pode_escrever}
+    \end{enumerate}
+\end{enumerate}
+
+\section{Subfluxos}
+\subsection{Gerenciar relacionamento com a anotações}
+\begin{enumerate}[label=\textbf{UC02-S{\arabic*}},font=\normalsize]
+    \item \textbf{\normalsize Atribuir etiqueta à anotação} \label{uc02:subfluxo:atribuir_etiqueta}
+    \begin{enumerate}[label={\arabic*}.]
+        \item Sistema avalia o relacionamento entre as anotações e as etiquetas \label{uc02:subfluxo:nome_fluxo_1:nome_passo1}
+        \item Caso uma anotação tenha sido apagada, a etiqueta que esteja associada a ela deve perder essa associação
+        \item Caso haja a atribuição de uma nova etiqueta, a etiqueta antiga deve perder a atribuição e a etiqueta nova deve receber a atribuição
+        \item Caso haja a retirada de uma etiqueta de uma anotação, o sistema deve desfazer essa relação
+        \item Encerramento do subfluxo
+    \end{enumerate}
+
+    \item \textbf{\normalsize Obter etiqueta atribuída a anotação} \label{uc02:subfluxo:ler_etiquetas_atribuidas}
+    \begin{enumerate}[label={\arabic*}.]
+        \item O sistema obtém os registros das relações entre etiquetas e anotações
+        \item O sistema procura se há uma etiqueta atribuída à anotação em questão
+        \item Caso haja uma etiqueta atribuída, o sistema informa a etiqueta
+        \item Caso não haja etiqueta atribuída, o sistema informa que não há etiqueta
+        \item Encerramento do subfluxo
+    \end{enumerate}
+\end{enumerate}
+
+\section{Condições prévias}
+\begin{enumerate}
+    \item Para o fluxo alternativo \ref{uc02:fluxo_alternativo:editar_etiqueta} deve existir uma etiqueta
+    \item Para o fluxo alternativo \ref{uc02:fluxo_alternativo:apagar_etiqueta} deve existir uma etiqueta
+\end{enumerate}
+
+\section{Condições posteriores}
+\begin{enumerate}
+    \item Após o fluxo \ref{uc02:fluxo_alternativo:criar_etiqueta} há a criação de etiqueta
+    \item Após o fluxo \ref{uc02:fluxo_alternativo:editar_etiqueta} há a modificação das etiquetas existentes
+    \item Após o fluxo \ref{uc02:fluxo_alternativo:apagar_etiqueta} há a exclusão de etiquetas existentes
+\end{enumerate}
+
+% \section{Pontos de extensão}
+
+\chapter{UC03 - Gerenciar tarefas}
+\section{Descrição} 
+%Descrever caso de uso.
+Caso de uso responsável por criar, visualizar, editar, excluir tarefas. O usuário interage com o sistema, que disponibiliza as possibilidades de gerenciar as tarefas.
+\section{Atores}
+\begin{itemize}
+    \item[\textbf{Usuário}] Interessado em organizar os compromissos por meio de tarefas e listas de tarefas
+\end{itemize}
+
+\section{Regras de negócio}
+\IBGEtabfontsize
+\begin{longtable}{@{}lp{0.25\textwidth}p{0.6\textwidth}@{}}
+\caption{Regras de negócio do caso UC03}
+\label{tab:uc03:regras_de_negocio} \\
+\toprule
+\textbf{Id.} & \textbf{Nome} & \textbf{Descrição} \\ \midrule
+UC03-RN01 & Validar tarefa & A Tarefa será considerada válida se o campo de conteúdo não estiver vazio ou nulo.  \phantomsection \label{uc03:rn01_validar_tarefa} \\ \midrule
+UC03-RN02 & Validar lista de tarefa & A lista de tarefa é considerada válida se e somente se o seu campo de título não for nulo ou vazio \phantomsection \label{uc03:rn02_validar_lista_tarefa} \\ \bottomrule
+\end{longtable}
+
+\section{Fluxo básico de eventos (FB)}
+
+\begin{enumerate}
+    \item O usuário inicia a aplicação
+    \item O sistema carrega as tarefas existentes
+    \item O sistema carrega as listas de tarefas existentes
+    \label{uc03:fluxo_base:inicio_fluxo}
+    \item Caso o usuário selecione que quer visualizar tarefas e exista tarefas, será iniciado o fluxo alternativo de visualizar tarefas \ref{uc03:fluxo_alternativo:visualizar_tarefa}
+    \item Caso o usuário queira criar uma tarefa o fluxo alternativo de criar tarefa será iniciado \ref{uc03:fluxo_alternativo:criar_tarefa} \label{uc03:fluxo_base:inicio_opcoes}
+    \item Caso o usuário queira editar uma tarefa existente o fluxo alternativo de editar tarefa será iniciado \ref{uc03:fluxo_alternativo:editar_tarefa}
+    \item Caso o usuário queira apagar uma tarefa existente o fluxo alternativo de apagar tarefa será iniciado \ref{uc03:fluxo_alternativo:excluir_tarefa}
+    
+    \item Caso o usuário selecione que quer visualizar listas de tarefas e estas existam, será iniciado o fluxo alternativo de visualizar listas de tarefas \ref{uc03:fluxo_alternativo:visualizar_lista_tarefa}
+    \item Caso o usuário queira criar uma lista de tarefas o fluxo alternativo de criar lista de tarefa será iniciado \ref{uc03:fluxo_alternativo:criar_lista_tarefa}
+    \item Caso o usuário queira editar uma lista de tarefas existente o fluxo alternativo de editar lista de tarefa será iniciado \ref{uc03:fluxo_alternativo:editar_lista_tarefa}
+    \item Caso o usuário queira apagar uma lista de tarefas existente o fluxo alternativo de apagar lista de tarefas será iniciado \ref{uc03:fluxo_alternativo:excluir_lista_tarefa}
+    
+    \item Se o usuário desejar realizar outra ação, o caso de uso continua a partir do passo \ref{uc03:fluxo_base:inicio_fluxo}
+    \item Fim do fluxo básico
+\end{enumerate}
+
+\section{Fluxos alternativos}
+\begin{enumerate}[label=\textbf{UC03-FA{\arabic*}},font=\normalsize]
+    \subsection{Visualização de tarefas}
+    \item \textbf{\normalsize Visualizar tarefa} \label{uc03:fluxo_alternativo:visualizar_tarefa}
+    \begin{enumerate}[label={\arabic*}.]
+        \item O sistema disponibiliza uma interface com todas as tarefas disponíveis 
+        \item Retorna-se ao fluxo básico no passo \ref{uc03:fluxo_base:inicio_opcoes}
+    \end{enumerate}
+    
+    \subsection{Criação de tarefas}
+    \item \textbf{\normalsize Criar tarefa}
+    \label{uc03:fluxo_alternativo:criar_tarefa}
+    \begin{enumerate}[label={\arabic*}.]
+        \item O sistema disponibiliza uma interface para criação da tarefa
+        \item O sistema possibilita que o usuário crie um conteúdo para a tarefa ou altere seu estado para feito ou não \label{uc03:fluxo_alternativo:criar_tarefa:inicio_interacao}
+        \item O usuário sinaliza que quer salvar a tarefa
+        \item Se a tarefa não obedecer à \textbf{\hyperref[uc03:rn01_validar_tarefa]{UC03-RN01}} o fluxo será desviado para o fluxo excepcional \ref{uc03:fluxo_excepcional:tarefa_invalida_criar}
+        \item A tarefa é criada
+        \item Retorna-se ao fluxo básico no passo \ref{uc03:fluxo_base:inicio_opcoes}
+    \end{enumerate}
+    
+    \subsection{Edição de tarefas}
+    \item \textbf{\normalsize Editar tarefa}
+    \label{uc03:fluxo_alternativo:editar_tarefa}
+    \begin{enumerate}[label={\arabic*}.]
+        \item O sistema disponibiliza uma interface para edição da tarefa
+        \item O sistema possibilita que o usuário altere conteúdo \label{uc03:fluxo_alternativo:editar_tarefa:inicio_interacao}
+         \item Caso o usuário cancele a operação, retorna-se ao fluxo básico para o passo \ref{uc03:fluxo_base:inicio_opcoes}
+        \item O usuário seleciona que quer salvar a tarefa
+        \item Se a tarefa não obedecer à \textbf{\hyperref[uc03:rn01_validar_tarefa]{UC03-RN01}} o fluxo será desviado para o fluxo excepcional \ref{uc03:fluxo_excepcional:tarefa_invalida_editar}
+        \item A tarefa é modificada
+        \item Retorna-se ao fluxo básico no passo \ref{uc03:fluxo_base:inicio_opcoes}
+    \end{enumerate}
+    
+    \subsection{Exclusão de tarefas}
+    \item \textbf{\normalsize Excluir tarefa}
+    \label{uc03:fluxo_alternativo:excluir_tarefa}
+    \begin{enumerate}[label={\arabic*}.]
+        \item O usuário indica que deseja apagar a tarefa
+        \item A tarefa é excluída
+        \item O sistema retira de todas as listas de tarefa a tarefa excluída
+        \item Retorna-se ao fluxo básico no passo \ref{uc03:fluxo_base:inicio_opcoes}
+    \end{enumerate}
+
+    \subsection{Visualização de lista de tarefas}
+    \item \textbf{\normalsize Visualizar lista de tarefas} \label{uc03:fluxo_alternativo:visualizar_lista_tarefa}
+    \begin{enumerate}[label={\arabic*}.]
+        \item O sistema disponibiliza uma interface com todas as listas de tarefas disponíveis 
+        \item Retorna-se ao fluxo básico no passo \ref{uc03:fluxo_base:inicio_opcoes}
+    \end{enumerate}
+    
+    \subsection{Criação de lista de tarefas}
+    \item \textbf{\normalsize Criar lista de tarefa}
+    \label{uc03:fluxo_alternativo:criar_lista_tarefa}
+    \begin{enumerate}[label={\arabic*}.]
+        \item O sistema disponibiliza uma interface para criação da lista de tarefas
+        \item O sistema carrega as tarefas disponíveis
+        \item O sistema possibilita que o usuário crie um título para a lista de tarefas e altere quais tarefas pertencem à essa lista. \label{uc03:fluxo_alternativo:criar_lista_tarefa:inicio_interacao}
+        \item O usuário sinaliza que quer salvar a lista de tarefas
+        \item Se a lista de tarefas não obedecer à \textbf{\hyperref[uc03:rn02_validar_lista_tarefa]{UC03-RN02}} o fluxo será desviado para o fluxo excepcional \ref{uc03:fluxo_excepcional:lista_tarefa_invalida_criar}
+        \item A lista de tarefas é criada
+        \item Retorna-se ao fluxo básico no passo \ref{uc03:fluxo_base:inicio_opcoes}
+    \end{enumerate}
+    
+    \subsection{Edição de lista de tarefas}
+    \item \textbf{\normalsize Editar lista de tarefa}
+    \label{uc03:fluxo_alternativo:editar_lista_tarefa}
+    \begin{enumerate}[label={\arabic*}.]
+        \item O sistema disponibiliza uma interface para edição da lista de tarefas
+        \item O sistema carrega as tarefas disponíveis
+        \item O sistema carrega o título da lista de tarefa e as tarefas que pertencem à mesma.
+        \item O sistema possibilita que o usuário modifique o título da lista de tarefas e altere quais tarefas pertencem à essa lista. \label{uc03:fluxo_alternativo:editar_lista_tarefa:inicio_interacao}
+        \item Caso o usuário cancele a operação, retorna-se ao fluxo básico para \ref{uc03:fluxo_base:inicio_opcoes}
+        \item O usuário sinaliza que quer salvar as modificações na lista de tarefas
+        \item Se a lista de tarefas não obedecer à \textbf{\hyperref[uc03:rn02_validar_lista_tarefa]{UC03-RN02}} o fluxo será desviado para o fluxo excepcional \ref{uc03:fluxo_excepcional:lista_tarefa_invalida_editar}
+        \item A lista de tarefas é modificada
+        \item Retorna-se ao fluxo básico no passo \ref{uc03:fluxo_base:inicio_opcoes}
+    \end{enumerate}
+    
+    \subsection{Exclusão de lista de tarefas}
+    \item \textbf{\normalsize Excluir lista de tarefas}
+    \label{uc03:fluxo_alternativo:excluir_lista_tarefa}
+    \begin{enumerate}[label={\arabic*}.]
+        \item O usuário se indica que deseja apagar a lista de tarefas
+        \item A lista de tarefa é excluída
+        \item O sistema exclui a associação entre as tarefas e a lista de tarefas apagada
+        \item Retorna-se ao fluxo básico no passo \ref{uc03:fluxo_base:inicio_opcoes}
+    \end{enumerate}
+\end{enumerate}
+
+\section{Fluxos Excepcionais}
+\begin{enumerate}[label=\textbf{UC03-FE{\arabic*}},font=\normalsize]
+    \item \textbf{\normalsize Tentativa de salvar tarefa inválida na criação} \label{uc03:fluxo_excepcional:tarefa_invalida_criar}
+    \begin{enumerate}[label={\arabic*}.]
+        \item O usuário deve ser informado das violações à regra de negócio \textbf{\hyperref[uc03:rn01_validar_tarefa]{UC03-RN01}} \label{ucxx:fluxo_excepcional:nome_fluxo_1:nome_passo1}
+        \item Retorna-se ao fluxo alternativo \ref{uc03:fluxo_alternativo:criar_tarefa} no passo \ref{uc03:fluxo_alternativo:criar_tarefa:inicio_interacao}
+    \end{enumerate}
+
+    \item \textbf{\normalsize Tentativa de salvar tarefa inválida na edição} \label{uc03:fluxo_excepcional:tarefa_invalida_editar}
+    \begin{enumerate}[label={\arabic*}.]
+        \item O usuário deve ser informado das violações à regra de negócio \textbf{\hyperref[uc03:rn01_validar_tarefa]{UC03-RN01}}
+        \item Retorna-se ao fluxo alternativo \ref{uc03:fluxo_alternativo:editar_tarefa} no passo \ref{uc03:fluxo_alternativo:editar_tarefa:inicio_interacao}
+    \end{enumerate}
+
+    \item \textbf{\normalsize Tentativa de salvar lista de tarefas inválida na criação} \label{uc03:fluxo_excepcional:lista_tarefa_invalida_criar}
+    \begin{enumerate}[label={\arabic*}.]
+        \item O usuário deve ser informado das violações à regra de negócio \textbf{\hyperref[uc03:rn02_validar_lista_tarefa]{UC03-RN02}}
+        \item Retorna-se ao fluxo alternativo \ref{uc03:fluxo_alternativo:criar_lista_tarefa} no passo \ref{uc03:fluxo_alternativo:criar_lista_tarefa:inicio_interacao}
+    \end{enumerate}
+
+    \item \textbf{\normalsize Tentativa de salvar lista de tarefas inválida na edição} \label{uc03:fluxo_excepcional:lista_tarefa_invalida_editar}
+    \begin{enumerate}[label={\arabic*}.]
+        \item O usuário deve ser informado das violações à regra de negócio \textbf{\hyperref[uc03:rn02_validar_lista_tarefa]{UC03-RN02}}
+        \item Retorna-se ao fluxo alternativo \ref{uc03:fluxo_alternativo:editar_lista_tarefa} no passo \ref{uc03:fluxo_alternativo:editar_lista_tarefa:inicio_interacao}
+    \end{enumerate}
+\end{enumerate}
+
+% \section{Subfluxos}
+
+% \section{Cenários Chave}
+
+\section{Condições prévias}
+\begin{enumerate}
+    \item Para o fluxo alternativo de editar tarefa \ref{uc03:fluxo_alternativo:editar_tarefa} é necessário existir uma tarefa
+    \item Para o fluxo alternativo de excluir tarefa \ref{uc03:fluxo_alternativo:excluir_tarefa} é necessário existir uma tarefa
+    \item Para o fluxo alternativo de editar lista de tarefa \ref{uc03:fluxo_alternativo:editar_lista_tarefa} é necessário existir uma lista de tarefa.
+    \item Para o fluxo alternativo de excluir lista de tarefas \ref{uc03:fluxo_alternativo:excluir_lista_tarefa} é necessário existir uma lista de tarefas
+\end{enumerate}
+
+\section{Condições posteriores}
+\begin{enumerate}
+    \item Após o fluxo alternativo criar tarefa \ref{uc03:fluxo_alternativo:criar_tarefa} uma tarefa é criada
+    \item Após o fluxo alternativo de editar tarefa \ref{uc03:fluxo_alternativo:editar_tarefa} há a modificação de uma tarefa 
+    \item Após o fluxo alternativo de excluir tarefa \ref{uc03:fluxo_alternativo:excluir_tarefa} há a exclusão de uma tarefa
+    \item Após o fluxo alternativo criar lista de tarefas \ref{uc03:fluxo_alternativo:criar_lista_tarefa} uma lista de tarefa é criada
+    \item Após o fluxo alternativo de editar lista de tarefas \ref{uc03:fluxo_alternativo:editar_lista_tarefa} uma lista de tarefa é modificada
+    \item Após o fluxo alternativo de excluir lista de tarefas \ref{uc03:fluxo_alternativo:excluir_lista_tarefa} há a exclusão de uma lista de tarefas
+    
+\end{enumerate}
+
+\part{Resultados}
+%
+% Lições Aprendidas com o projeto
+%
 \chapter{Lições Aprendidas}
 % [Liste as lições aprendidas na retrospectiva, com ênfase especial nas ações a serem tomadas para melhorar, por exemplo: o ambiente de desenvolvimento, o processo ou a colaboração da equipe.]
 A equipe iniciou o desenvolvimento através de uma abordagem ágil da Engenharia de Requisitos. A troca da perspectiva de ágil para tradicional ajudou os componentes a trabalharem mapeando os problemas identificados anteriormente em necessidades, organizar estas em requisitos funcionais e agrupar esses requisitos em casos de uso.
 
 No início da unidade 5 houve uma confusão sobre como se especificaria um caso de uso. Após conversas com o Professor Orientador, ficou evidente que não havia a necessidade de se seguir todos os pontos do \textit{template} apresentado como exemplo, o que simplificou a especificação.
 
-% \begin{itemize}
-% \section{Gerenciamento de atividades}
-% \item a
-% \item b
-% \item c
-% \section{Priorização de requisitos}
-% \item a
-% \item b
-% \item c
-% \section{Priorização de requisitos}
-% \item a
-% \item b
-% \item c
-% \end{itemize}
+Dentro do processo tradicional  aprendemos a levantar requisitos e construir diagrama de caso de uso e a partir dele elaborar as especificações dos caso de uso.
 
 % ----------------------------------------------------------
 % Capitulo com exemplos de comandos inseridos de arquivo externo
@@ -987,7 +1381,7 @@ No início da unidade 5 houve uma confusão sobre como se especificaria um caso 
 % Referências bibliográficas
 % ----------------------------------------------------------
 %[Listar as referências utilizadas neste documento]
-\bibliography{referencias_visao.bib}
+% \bibliography{referencias_visao.bib}
 
 % ----------------------------------------------------------
 % Glossário
